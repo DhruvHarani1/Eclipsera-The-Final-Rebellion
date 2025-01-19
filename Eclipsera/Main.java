@@ -43,14 +43,14 @@ class Awakening {
 
         initialDialogues();
 
-        System.out.println("\nFirst Lets Introduct with Characters.");
+        System.out.println("\nFirst Lets Introduce with Characters.");
         System.out.print("Press Enter To Continue");
         sc.nextLine();
 
         professorIntroduction();
-        alexIntroduction();
-        suhaniIntroduction();
         arjunIntroduction();
+        suhaniIntroduction();
+        alexIntroduction();
         tysonIntroduction();
     }
 
@@ -65,7 +65,6 @@ class Awakening {
         nextpart();
         System.out.println("the most advanced AI in history.");
         nextpart();
-        nextpart();
         System.out.println("\nIt was designed to solve our greatest challenges,");
         nextpart();
         System.out.println("but it deemed us the problem.");
@@ -78,13 +77,11 @@ class Awakening {
         nextpart();
         System.out.println("Memories erased, lives rewritten.");
         nextpart();
-        System.out.println("\nBut four individuals remain... unbroken, unyielding,");
-        System.out.println("and unknowingly destined to rebel.");
+        System.out.println("\nBut four individuals stand strong, unaware of their destiny,");
+        System.out.println("chosen to rise and bring the change.");        
         nextpart();
         nextpart();
         System.out.println("\nTheir story begins here.");
-        nextpart();
-        System.out.println("\nLoading it May take Upto 5 sec");
         nextpart();
         nextpart();
     }
@@ -95,19 +92,20 @@ class Awakening {
         System.out.println("\t*     Professor    *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Professor Was One Of The Researcher Who Made Nexus");
-        System.out.println("The scientist who created part of the virtual world,");
+        System.out.println("The Professor is a brilliant mind, a pioneering researcher in creating the Nexus.");
+        System.out.println("He's the scientist who helped build the foundations of the virtual world,");
         nextpart();
         nextpart();
-        System.out.println("now determined to undo his mistake.");
+        System.out.println("But now, the Professor is determined to undo the mistake");
         nextpart();
-        System.out.println("\nNO one knows his real name But He Knows Everbody");
+        System.out.println("\nNo one knows his real name, but he knows everything about everyone.");
         nextpart();
-        System.out.print("Press Enter for overview");
+        System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("Professor Is Genius , Data Scientist  And Knows About The Nexus");
+        System.out.println("A genius, data scientist, and the mind behind the Nexus,");
+        System.out.println("the Professor holds the key to escaping the virtual prison.");
         nextpart();
-        System.out.print("Press Enter To View next Character");
+        System.out.print("\nPress Enter To View next Character.");
         sc.nextLine();
     }
 
@@ -117,15 +115,16 @@ class Awakening {
         System.out.println("\t*     Alex         *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Alex Is A Tech Expert");
-        System.out.println("Passes his days by Hacking minor Systems To Live his livelhood");
+        System.out.println("Alex is a tech expert, known for his hacking skills.");
+        System.out.println("His life is spent in the virtual world, hacking minor systems to survive");
         nextpart();
         nextpart();
-        System.out.print("Press Enter for overview");
+        System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("Alex Is a Hacker , intrested In Tech");
+        System.out.println("\nA true hacker at heart,");
+        System.out.println("solving complex problems very easily");
         nextpart();
-        System.out.print("Press Enter To View next Character");
+        System.out.print("\nPress Enter To View next Character.");
         sc.nextLine();
     }
 
@@ -135,15 +134,16 @@ class Awakening {
         System.out.println("\t*     Suhani       *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Suhani Is A  Physics And Chemistry Champ");
-        System.out.println("Passes her days in Eclipsera doing Experiments ");
+        System.out.println("Suhani is a master in the fields of Physics and Chemistry, a champion of science.");
+        System.out.println("She spends her days experimenting and researching within the Eclipsera,");
         nextpart();
         nextpart();
-        System.out.print("Press Enter for overview");
+        System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("Suhani Understands Physics And Chemistry Well");
+        System.out.println("\nSuhani's understanding of the natural world");
+        System.out.println("makes her an indispensable asset for freedom.");
         nextpart();
-        System.out.print("Press Enter To View next Character");
+        System.out.print("\nPress Enter To View next Character.");
         sc.nextLine();
     }
 
@@ -153,15 +153,16 @@ class Awakening {
         System.out.println("\t*     Arjun        *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Arjun Is A  Strategy maker");
-        System.out.println("Who Is Able To Find Ways in any Situation ");
+        System.out.println("Arjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.");
+        System.out.println("He can analyze any situation and find the best path forward");
         nextpart();
         nextpart();
-        System.out.print("Press Enter for overview");
+        System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("Arjun is well known for his Intelligence And his ability to be a Leader");
+        System.out.println("\nArjun's intelligence and leadership skills");
+        System.out.println("have earned him a reputation as a leader and problem solver.");
         nextpart();
-        System.out.print("Press Enter To View next Character");
+        System.out.print("\nPress Enter To View next Character.");
         sc.nextLine();
     }
 
@@ -169,27 +170,18 @@ class Awakening {
     void tysonIntroduction() {
         System.out.println("\n\t********************");
         System.out.println("\t*     Tyson        *");
-        System.out.println("\t********************");        nextpart();
-        System.out.println("Tyson is a engineering");
-        System.out.println("he can make any type of Machine From Scratch");
+        System.out.println("\t********************");
+        nextpart();
+        System.out.println("Tyson is a true engineering genius, capable of building anything from scratch.");
+        System.out.println("Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.");
         nextpart();
         nextpart();
-        System.out.print("Press Enter for overview");
+        System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("Tyson can built any type of Device ");
+        System.out.println("\nFrom gadgets to full-scale machines, Tyson can build it all,");
+        System.out.println("using his skills to create tools that will aid in the fight for freedom.");
         nextpart();
     }
-
-
-
-
-
-
-
-
-
-
-
 
     // Method to give a pause of 3 sec between each sentense
     void nextpart() {
