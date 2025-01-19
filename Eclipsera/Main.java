@@ -33,6 +33,7 @@ class Awakening {
 
     // Classes
     Scanner sc = new Scanner(System.in);
+    Call C = new Call();
 
     // Main Entry point of Awakening
     void EnterPoint() {
@@ -44,6 +45,7 @@ class Awakening {
         initialDialogues();
 
         System.out.println("\nFirst Lets Introduce with Characters.");
+        System.out.println("Professor , Arjun , Suhani , Alex , Tyson");
         System.out.print("Press Enter To Continue");
         sc.nextLine();
 
@@ -52,6 +54,30 @@ class Awakening {
         suhaniIntroduction();
         alexIntroduction();
         tysonIntroduction();
+        System.out.print("\nPress Enter To Continue.");
+        sc.nextLine();
+
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*                 Part 1: Calling                    *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+
+        System.out.println("\nSwitching role To Professor may take upto 5 sec");
+        nextpart();
+        System.out.println("As Professor you need to gather TEAM");
+        for (int i = 1; i < 5; i++) {
+            System.out.println("Select a member to add to the team:");
+            System.out.println("Press 1 for Arjun");
+            System.out.println("Press 2 for Suhani");
+            System.out.println("Press 3 for Alex");
+            System.out.println("Press 4 for Tyson");
+            System.out.println("Enter number: ");
+            int select = sc.nextInt();
+            if (select<1 || select>4) {
+                System.out.println("Enter correct number");
+                i--;
+            }   
+        }   
     }
 
     // Method for initial Dialogues
@@ -188,6 +214,24 @@ class Awakening {
         long nextsentence = System.currentTimeMillis(); // Store the start time
         while (System.currentTimeMillis() - nextsentence < 3000) {
             // Do nothing for 3 seconds
+        }
+    }
+}
+
+class Call{
+
+    void call(int calling){
+        if (calling==1) {
+            
+        }
+        else if (calling==2) {
+            
+        }
+        else if (calling==3) {
+            
+        }
+        else if (calling==4) {
+            
         }
     }
 }
