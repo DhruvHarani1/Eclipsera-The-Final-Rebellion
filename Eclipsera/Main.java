@@ -1,3 +1,12 @@
+/*  Eclipsera: The Final Rebellion
+    meaning of name
+    Eclipsera --> Eclipse + era         //eclipse referes to solar eclipse the dark time
+    so the darkest time of this era
+    and the final rebeliion mean the final and biggest war of this era
+    so ----->  Eclipsera: The Final Rebellion <-----
+
+  */
+
 import java.util.*;
 
 public class Main {
@@ -35,6 +44,10 @@ class Awakening {
     Scanner sc = new Scanner(System.in);
     Call C = new Call();
 
+    // variables
+    int[] alreadyCalled = new int[4]; // used in part 1 to find which charater is already called
+    boolean flag = true;
+
     // Main Entry point of Awakening
     void EnterPoint() {
         System.out.println("\n\t\t\t******************************************************");
@@ -45,7 +58,6 @@ class Awakening {
         initialDialogues();
 
         System.out.println("\nFirst Lets Introduce with Characters.");
-        System.out.println("Professor , Arjun , Suhani , Alex , Tyson");
         System.out.print("Press Enter To Continue");
         sc.nextLine();
 
@@ -56,28 +68,46 @@ class Awakening {
         tysonIntroduction();
         System.out.print("\nPress Enter To Continue.");
         sc.nextLine();
+        nextpart();
 
         System.out.println("\n\t\t\t******************************************************");
         System.out.println("\t\t\t*                 Part 1: Calling                    *");
         System.out.println("\t\t\t******************************************************");
         nextpart();
 
-        System.out.println("\nSwitching role To Professor may take upto 5 sec");
+        System.out.println("\n*****Switching role To Professor may take upto 5 sec*****");
         nextpart();
-        System.out.println("As Professor you need to gather TEAM");
+        System.out.println("\nFirst of all");
+        System.out.println("As Professor you need to gather TEAM\n");
         for (int i = 1; i < 5; i++) {
+
+            flag = true;
+
             System.out.println("Select a member to add to the team:");
             System.out.println("Press 1 for Arjun");
             System.out.println("Press 2 for Suhani");
             System.out.println("Press 3 for Alex");
             System.out.println("Press 4 for Tyson");
-            System.out.println("Enter number: ");
+            System.out.print("Enter number: ");
             int select = sc.nextInt();
-            if (select<1 || select>4) {
-                System.out.println("Enter correct number");
+            sc.nextLine();
+
+            alreadyCalled[i - 1] = select;
+            for (int j = 0; j < alreadyCalled.length; j++) {
+                if (select == alreadyCalled[j] && j != (i - 1)) {
+                    System.out.println("Already Called Call Someone Else");
+                    i--;
+                    flag = false;
+                    break;
+                }
+            }
+            if (select < 1 || select > 4) {
+                System.out.println("\n Please Enter correct number between 1 to 4");
                 i--;
-            }   
-        }   
+            } else if (flag) {
+                C.call(select);
+            }
+        }
     }
 
     // Method for initial Dialogues
@@ -104,12 +134,12 @@ class Awakening {
         System.out.println("Memories erased, lives rewritten.");
         nextpart();
         System.out.println("\nBut four individuals stand strong, unaware of their destiny,");
-        System.out.println("chosen to rise and bring the change.");        
+        System.out.println("chosen to rise and bring the change.");
         nextpart();
         nextpart();
         System.out.println("\nTheir story begins here.");
         nextpart();
-        nextpart();
+        //nextpart();
     }
 
     // Method For professor Introduction
@@ -199,7 +229,8 @@ class Awakening {
         System.out.println("\t********************");
         nextpart();
         System.out.println("Tyson is a true engineering genius, capable of building anything from scratch.");
-        System.out.println("Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.");
+        System.out.println(
+                "Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.");
         nextpart();
         nextpart();
         System.out.print("\nPress Enter for overview.");
@@ -218,20 +249,310 @@ class Awakening {
     }
 }
 
-class Call{
+class Call {
 
-    void call(int calling){
-        if (calling==1) {
-            
+    Scanner sc = new Scanner(System.in);
+
+    void call(int calling) {
+        if (calling == 1) {
+            displayTitle("Switching Role to Arjun");
+            nextpart();
+
+            System.out.println("--------------------------------------------------------------------------");
+            System.out.println("|| Scene: A dark chamber filled with laser traps and crumbling walls. ||");
+            System.out.println("|| Arjun, the strategist, must diffuse a tripwire to escape the room. ||");
+            System.out.println("--------------------------------------------------------------------------");
+            nextpart();
+            nextpart();
+
+            displayMessage("\n<-- Arjun: One wrong move, and this whole place", false);
+            displayMessage("goes up in flames. Focus, Arjun. focus. -->", false);
+            nextpart();
+
+            System.out.println("\nOn the left wall, it's written - 'The color when a vehicle STOPS'."); // hint
+            nextpart();
+
+            String wire;
+            do {
+                System.out.println("\nAvailable Wires:");
+                System.out.println("1) RED");
+                System.out.println("2) GREEN");
+                System.out.println("3) YELLOW");
+                System.out.print("Choose a wire to cut: ");
+                wire = sc.next().toLowerCase();
+
+                switch (wire) {
+                    case "red":
+                        displayMessage("Arjun: I trust my instincts. Let's do this!", true);
+                        nextpart();
+                        break;
+
+                    case "green":
+                    case "yellow":
+                        displayMessage("\nBOOM! The room explodes into flames. Press Enter to rewind.", false);
+                        sc.nextLine(); // Clear input
+                        sc.nextLine();
+                        break;
+
+                    default:
+                        displayMessage("\nInvalid choice. Please enter 'Red', 'Green', or 'Yellow'.", false);
+                        break;
+                }
+            } while (!wire.equals("red"));
+
+            displayMessage("\nArjun cuts the RED wire, and the room powers down.", false);
+            nextpart();
+            System.out.println();
+
+            displayMessage("A faint voice echoes from a hidden speaker above.", true);
+            nextpart();
+            System.out.println();
+
+            displayMessage("Voice: You're a natural-born leader, Arjun.", false);
+            nextpart();
+            displayMessage("But even the best leaders need a team.", false);
+            nextpart();
+            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            nextpart();
+            System.out.println();
+            displayMessage("Arjun (thinking): 'A team? What does that even mean? I need answers.'", true);
+            System.out.println();
+
+        } else if (calling == 2) {
+            displayTitle("Switching Role to Suhani");
+            nextpart();
+
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("|| Scene: A futuristic lab with shattered glass and chemical spills.       ||");
+            System.out.println("|| Suhani, the scientist, is surrounded by broken equipment and chemicals  ||");
+            System.out.println("|| as she frantically mixes compounds to neutralize a spreading gas(Cl).       ||");
+            System.out.println("---------------------------------------------------------------------------------");
+            nextpart();
+            nextpart();
+            nextpart();
+
+            displayMessage("\n<-- Suhani: I need a stabilizer.", false);
+            displayMessage("Without it, this gas will take me out -->", false);
+            nextpart();
+
+            System.out.println("\n\tIn the Flask on table, it's written - 'NaOH'"); // hint
+            nextpart();
+            System.out.println("\n\tCl + NaOH ---> NaCl + NaOCl + Water"); // hint
+            nextpart();
+
+            String chemical;
+            do {
+                System.out.println("\nAvailable stabilizer:");
+                System.out.println("1) NaCl");
+                System.out.println("2) NaOH");
+                System.out.println("3) NaOCl");
+                System.out.print("Choose a stabilizer: ");
+                chemical = sc.next().toLowerCase();
+
+                switch (chemical) {
+                    case "naoh":
+                        displayMessage("Suhani: God I trust you. Hare Krishna!", true);
+                        nextpart();
+                        break;
+
+                    case "nacl":
+                    case "naocl":
+                        displayMessage("\nShit! The gas spread in the Room. Press Enter to rewind.", false);
+                        sc.nextLine(); // Clear input
+                        sc.nextLine();
+                        break;
+
+                    default:
+                        displayMessage("\nInvalid choice. Please enter 'NaOH', 'NaCl', or 'NaOCl'.", false);
+                        break;
+                }
+            } while (!chemical.equals("naoh"));
+
+            displayMessage("\nSuhani pours NaOH in mixture, and the gas stops spreading.", false);
+            nextpart();
+            System.out.println();
+
+            displayMessage("revealing a monitor flashing a message:", true);
+            nextpart();
+            System.out.println();
+
+            displayMessage("Your brilliance is wasted here, Suhani.", false);
+            nextpart();
+            displayMessage("If you want to fix what's broken,", false);
+            nextpart();
+            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            nextpart();
+            System.out.println();
+            displayMessage("Suhani (thinking): 'Fix what's broken? Who sent this?'", true);
+            System.out.println();
+
+        } else if (calling == 3) {
+            displayTitle("Switching Role to Alex");
+            nextpart();
+
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("|| Scene: A bunker, wires hanging in every corner. Alex, the tech genius, is  ||");
+            System.out.println("|| typing on a malfunctioning terminal as alarms blare in the background.     ||");
+            System.out.println("---------------------------------------------------------------------------------");
+            nextpart();
+            nextpart();
+
+            displayMessage("\n<-- Alex: I will hack this at any cost!", false);
+            displayMessage("    What should I do?-->", false);
+            nextpart();
+
+            System.out.println("\n\tOn the mini screen hanging, it's written"); // hint
+            nextpart();
+            System.out.println("\n\t'Google a Tech Giant of 2030 Destroyed After DDoS attack"); // hint
+            nextpart();
+
+            String attacktype;
+            do {
+                System.out.println("\nAvailable Attacks:");
+                System.out.println("1) SQLi (SQL Injection)");
+                System.out.println("2) MitM (Man-in-the-Middle)");
+                System.out.println("3) DDoS (Distributed Denial of Service)");
+                System.out.print("Choose a Attack: ");
+                attacktype = sc.next().toLowerCase();
+
+                switch (attacktype) {
+                    case "ddos":
+                        displayMessage("Alex: Come on... bypass the firewall!", true);
+                        nextpart();
+                        break;
+
+                    case "mitm":
+                    case "sqli":
+                        displayMessage("\nAttack Failed!!! Press Enter to rewind.", false);
+                        sc.nextLine(); // Clear input
+                        sc.nextLine();
+                        break;
+
+                    default:
+                        displayMessage("\nInvalid choice. Please enter 'DDos', 'MitM', or 'SQLi'.", false);
+                        break;
+                }
+            } while (!attacktype.equals("ddos"));
+
+            displayMessage("Alex perform DDos attack, and downs the system", false);
+            nextpart();
+            System.out.println();
+
+            displayMessage("The screen flashes red: and a new message appears", true);
+            nextpart();
+            System.out.println();
+
+            displayMessage("This system is only the beginning, Alex.", false);
+            nextpart();
+            displayMessage("If you want to break through,", false);
+            nextpart();
+            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            nextpart();
+            System.out.println();
+            displayMessage("Alex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
+            System.out.println();
+        } else if (calling == 4) {
+
+            displayTitle("Switching Role to Tyson");
+            nextpart();
+
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("|| Scene: A workshop filled with broken machines and sparking wires. ||");
+            System.out.println("|| Tyson, the hardware engineer,                                     ||");
+            System.out.println("|| A combination of brilliant Mind and powerful hands                ||");
+            System.out.println("------------------------------------------------------------------------");
+            nextpart();
+            nextpart();
+
+            displayMessage("\n<-- Tyson: Just one more connection,", false);
+            displayMessage("    and this place will hold for another day! -->", false);
+            nextpart();
+
+            System.out.println("\n\tOn the picture hanging on wall shows"); // hint
+            nextpart();
+            System.out.println("\n\t'The fuel should be three-fourths part for the generator to work'"); // hint
+            nextpart();
+
+            String fuel;
+            do {
+                System.out.println("\nfuel to fill:");
+                System.out.println("1) 100%");
+                System.out.println("2) 75%");
+                System.out.println("3) 50%");
+                System.out.println("4) 25%");
+                System.out.print("Choose  percentage: ");
+                fuel = sc.next().toLowerCase();
+
+                switch (fuel) {
+                    case "100":
+                        displayMessage("\nOver Filled Press Enter to rewind.", false);
+                        sc.nextLine(); // Clear input
+                        sc.nextLine();
+                        break;
+                    case "75":
+                        displayMessage("Tyson: Its Time to ROCK!!!", true);
+                        nextpart();
+                        break;
+
+                    case "50":
+                    case "25":
+                        displayMessage("\nInsufficient Fuel Press Enter to rewind.", false);
+                        sc.nextLine(); // Clear input
+                        sc.nextLine();
+                        break;
+
+                    default:
+                        displayMessage("\nInvalid choice. Please enter '100', '75', , '50' or '25'.", false);
+                        break;
+                }
+            } while (!fuel.equals("75"));
+
+            displayMessage("\nThe generator roars to life,", false);
+            nextpart();
+
+            displayMessage("and a hologram projects from its core.", false);
+            nextpart();
+            System.out.println();
+
+            displayMessage("The hologram speaks: You build for survival, Tyson.", false);
+            nextpart();
+            displayMessage("But what if I told you there's more to fight for?", false);
+            nextpart();
+            displayMessage("Meet me at the Clock Tower. Midnight.", false);
+            nextpart();
+            System.out.println();
+            displayMessage("Tyson (thinking): 'More to fight for? What the hell is going on?", true);
+            System.out.println();
         }
-        else if (calling==2) {
-            
+    }
+
+    // Method to display a formatted title
+    void displayTitle(String title) {
+        System.out.println("\n===================================");
+        System.out.println("           " + title);
+        System.out.println("===================================\n");
+    }
+
+    // Method to display a message with optional emphasis
+    void displayMessage(String message, boolean addStars) {
+        if (addStars) {
+            System.out.println("* " + message + " *");
+        } else {
+            System.out.println(message);
         }
-        else if (calling==3) {
-            
-        }
-        else if (calling==4) {
-            
+    }
+
+    // Utility to prompt and wait for the user to press Enter
+    void waitForEnter(String prompt) {
+        System.out.println(prompt);
+        sc.nextLine();
+    }
+
+    // Method to add a pause of 3 seconds between scenes
+    void nextpart() {
+        long nextsentence = System.currentTimeMillis(); // Store the start time
+        while (System.currentTimeMillis() - nextsentence < 3000) {
+            // Wait for 3 seconds
         }
     }
 }
