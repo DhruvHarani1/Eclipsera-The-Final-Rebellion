@@ -42,7 +42,8 @@ class Awakening {
 
     // Classes
     Scanner sc = new Scanner(System.in);
-    Call C = new Call();
+    Calling Call = new Calling();
+    ClockTower CT = new ClockTower();
 
     // variables
     int[] alreadyCalled = new int[4]; // used in part 1 to find which charater is already called
@@ -66,12 +67,13 @@ class Awakening {
         suhaniIntroduction();
         alexIntroduction();
         tysonIntroduction();
+
         System.out.print("\nPress Enter To Continue.");
         sc.nextLine();
         nextpart();
 
         System.out.println("\n\t\t\t******************************************************");
-        System.out.println("\t\t\t*                 Part 1: Calling                    *");
+        System.out.println("\t\t\t*                 Episode 1: Calling                 *");
         System.out.println("\t\t\t******************************************************");
         nextpart();
 
@@ -91,23 +93,38 @@ class Awakening {
             System.out.print("Enter number: ");
             int select = sc.nextInt();
             sc.nextLine();
-
             alreadyCalled[i - 1] = select;
+
             for (int j = 0; j < alreadyCalled.length; j++) {
                 if (select == alreadyCalled[j] && j != (i - 1)) {
-                    System.out.println("Already Called Call Someone Else");
+                    System.out.println("\nAlready Called Call Someone Else\n");
                     i--;
                     flag = false;
                     break;
                 }
             }
+
             if (select < 1 || select > 4) {
-                System.out.println("\n Please Enter correct number between 1 to 4");
+                System.out.println("\n Please Enter correct number between 1 to 4\n");
                 i--;
             } else if (flag) {
-                C.call(select);
+                Call.callingMain(select);
             }
         }
+        // End Of Episode 1 calling
+
+        // Episode 2 Clock Tower
+
+        System.out.print("\nPress Enter To Continue.");
+        sc.nextLine();
+        nextpart();
+
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*                 Episode 2: Clock Tower             *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        CT.clockTowerMain();
+
     }
 
     // Method for initial Dialogues
@@ -139,7 +156,7 @@ class Awakening {
         nextpart();
         System.out.println("\nTheir story begins here.");
         nextpart();
-        //nextpart();
+        // nextpart();
     }
 
     // Method For professor Introduction
@@ -249,11 +266,12 @@ class Awakening {
     }
 }
 
-class Call {
+class Calling {
 
+    // classes
     Scanner sc = new Scanner(System.in);
 
-    void call(int calling) {
+    void callingMain(int calling) {
         if (calling == 1) {
             displayTitle("Switching Role to Arjun");
             nextpart();
@@ -317,6 +335,7 @@ class Call {
             System.out.println();
             displayMessage("Arjun (thinking): 'A team? What does that even mean? I need answers.'", true);
             System.out.println();
+            nextpart();
 
         } else if (calling == 2) {
             displayTitle("Switching Role to Suhani");
@@ -325,7 +344,7 @@ class Call {
             System.out.println("---------------------------------------------------------------------------------");
             System.out.println("|| Scene: A futuristic lab with shattered glass and chemical spills.       ||");
             System.out.println("|| Suhani, the scientist, is surrounded by broken equipment and chemicals  ||");
-            System.out.println("|| as she frantically mixes compounds to neutralize a spreading gas(Cl).       ||");
+            System.out.println("|| as she frantically mixes compounds to neutralize a spreading gas(Cl).   ||");
             System.out.println("---------------------------------------------------------------------------------");
             nextpart();
             nextpart();
@@ -385,6 +404,7 @@ class Call {
             System.out.println();
             displayMessage("Suhani (thinking): 'Fix what's broken? Who sent this?'", true);
             System.out.println();
+            nextpart();
 
         } else if (calling == 3) {
             displayTitle("Switching Role to Alex");
@@ -451,6 +471,8 @@ class Call {
             System.out.println();
             displayMessage("Alex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
             System.out.println();
+            nextpart();
+
         } else if (calling == 4) {
 
             displayTitle("Switching Role to Tyson");
@@ -523,6 +545,7 @@ class Call {
             System.out.println();
             displayMessage("Tyson (thinking): 'More to fight for? What the hell is going on?", true);
             System.out.println();
+            nextpart();
         }
     }
 
@@ -555,4 +578,123 @@ class Call {
             // Wait for 3 seconds
         }
     }
+}
+
+class ClockTower {
+
+    // classes
+    Scanner sc = new Scanner(System.in);
+
+    void clockTowerMain() {
+
+        System.out.println("---------------------------------------------------------");
+        System.out.println("|| Scene: A towering structure surrounded in mist,     ||");
+        System.out.println("|| One by one, the four characters arrive,             ||");
+        System.out.println("|| A hologram of a figure flickers before them         ||");
+        System.out.println("|| it's the mysterious Professor                       ||");
+        System.out.println("---------------------------------------------------------");
+        nextpart();
+        nextpart();
+        nextpart();
+        System.out.println("\n*****Switching role To Professor may take some Time*****");
+        nextpart();
+
+        displayMessage("\n<-- Professor: Welcome. You've all proven yourselves", false);
+        displayMessage("\n    capable of surviving in this nightmare. Congratulations", false);
+        displayMessage("\n    But survival isn't enough. Humanity needs you to fight back. -->", false);
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        displayMessage("Arjun: Who are you, and why should we trust you?", true);
+        nextpart();
+        System.out.println();
+
+        waitForEnter("Press Enter To Reply");
+        System.out.println();
+        displayMessage("I'm the one who knows how to get you out of here.", false);
+        nextpart();
+        displayMessage("This prison, Eclipsera, was built to enslave us.", false);
+        nextpart();
+        displayMessage("But every system has a weakness, and I've found it.", false);
+        nextpart();
+
+        System.out.println();
+        displayMessage("Suhani: And what exactly do you expect us to do?", true);
+        nextpart();
+        System.out.println();
+        
+        waitForEnter("Press Enter To Reply");
+        System.out.println();
+        displayMessage("Fight against Nexus", false);
+        displayMessage("Destroy Eclipsera", false);
+        displayMessage("and free humanity.", false);
+        nextpart();
+
+        System.out.println();
+        displayMessage("Alex: And here I thought my day couldn't get worse. Why us?", true);
+        nextpart();
+        System.out.println();
+        
+        waitForEnter("Press Enter To Reply");
+        System.out.println();
+        displayMessage("Because each of you has a skill this system fears.", false);
+        nextpart();
+        displayMessage("Suhani , Alex and Tyson you all have different Skills", false);
+        nextpart();
+        displayMessage("and Arjun Knows when and where to execute them .", false);
+        nextpart();
+
+        System.out.println();
+        displayMessage("Tyson : And what happens if we fail?", true);
+        nextpart();
+        System.out.println();
+        
+        waitForEnter("Press Enter To Reply");
+        System.out.println();
+        displayMessage("Failure is not an option.", false);
+        displayMessage("You're humanity's last hope.", false);
+        nextpart();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
+        System.out.println("\t<>                                                                       <>");
+        System.out.println("\t<>      The hologram flickers as the Clock Tower begins to shake.        <>");
+        System.out.println("\t<>      The Professor's voice grows urgent!!!                            <>");
+        System.out.println("\t<>                                                                       <>");
+        System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
+        System.out.println();
+        nextpart();
+        nextpart();
+
+        displayMessage("\nProfessor: The system knows you're here.", false);
+        displayMessage("\n    Go now ,I will contact you later", false);
+        displayMessage("\n    Na Nexus amar hai, na uski ghulami!", false);
+        nextpart();
+    }
+
+    // Method to display a message with optional emphasis
+    void displayMessage(String message, boolean addStars) {
+        if (addStars) {
+            System.out.println("* " + message + " *");
+        } else {
+            System.out.println(message);
+        }
+    }
+
+    // Utility to prompt and wait for the user to press Enter
+    void waitForEnter(String prompt) {
+        System.out.println(prompt);
+        sc.nextLine();
+    }
+
+    // Method to add a pause of 3 seconds between scenes
+    void nextpart() {
+        long nextsentence = System.currentTimeMillis(); // Store the start time
+        while (System.currentTimeMillis() - nextsentence < 3000) {
+            // Wait for 3 seconds
+        }
+    }
+
 }
