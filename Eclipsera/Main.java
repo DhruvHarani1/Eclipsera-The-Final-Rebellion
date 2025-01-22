@@ -1,10 +1,10 @@
 /*  Eclipsera: The Final Rebellion
-    meaning of name
-    Eclipsera --> Eclipse + era         //eclipse referes to solar eclipse the dark time
-    so the darkest time of this era
-    and the final rebeliion mean the final and biggest war of this era
-    so ----->  Eclipsera: The Final Rebellion <-----
+    #Meaning 
+    Eclipsera --> Eclipse + era   @---->eclipse referes to solar eclipse the dark time
+    So the darkest time of this era.
+    And the final rebeliion mean the final and biggest war of this era
 
+                             ----->  Eclipsera: The Final Rebellion <-----
   */
 
 import java.util.*;
@@ -44,6 +44,7 @@ class Awakening {
     Scanner sc = new Scanner(System.in);
     Calling Call = new Calling();
     ClockTower CT = new ClockTower();
+    TheNetwork TN = new TheNetwork();
 
     // variables
     int[] alreadyCalled = new int[4]; // used in part 1 to find which charater is already called
@@ -80,16 +81,17 @@ class Awakening {
         System.out.println("\n*****Switching role To Professor may take upto 5 sec*****");
         nextpart();
         System.out.println("\nFirst of all");
-        System.out.println("As Professor you need to gather TEAM\n");
+        System.out.println("As Professor you need to gather TEAM.\n");
+        nextpart();
         for (int i = 1; i < 5; i++) {
 
             flag = true;
 
-            System.out.println("Select a member to add to the team:");
+            System.out.println("Select a member to add to the team:\n");
             System.out.println("Press 1 for Arjun");
             System.out.println("Press 2 for Suhani");
             System.out.println("Press 3 for Alex");
-            System.out.println("Press 4 for Tyson");
+            System.out.println("Press 4 for Tyson\n");
             System.out.print("Enter number: ");
             int select = sc.nextInt();
             sc.nextLine();
@@ -124,6 +126,18 @@ class Awakening {
         System.out.println("\t\t\t******************************************************");
         nextpart();
         CT.clockTowerMain();
+
+        // Episode 2 The Network
+
+        System.out.print("\nPress Enter To Continue.");
+        sc.nextLine();
+        nextpart();
+
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*                 Episode 3: The Network             *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        TN.theNetworkMain();
 
     }
 
@@ -165,17 +179,17 @@ class Awakening {
         System.out.println("\t*     Professor    *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("The Professor is a brilliant mind, a pioneering researcher in creating the Nexus.");
+        System.out.println("\nThe Professor is a brilliant mind, a pioneering researcher in creating the Nexus.");
         System.out.println("He's the scientist who helped build the foundations of the virtual world,");
         nextpart();
         nextpart();
-        System.out.println("But now, the Professor is determined to undo the mistake");
+        System.out.println("\nBut now, the Professor is determined to undo the mistake");
         nextpart();
         System.out.println("\nNo one knows his real name, but he knows everything about everyone.");
         nextpart();
         System.out.print("\nPress Enter for overview.");
         sc.nextLine();
-        System.out.println("A genius, data scientist, and the mind behind the Nexus,");
+        System.out.println("\nA genius, data scientist, and the mind behind the Nexus,");
         System.out.println("the Professor holds the key to escaping the virtual prison.");
         nextpart();
         System.out.print("\nPress Enter To View next Character.");
@@ -188,7 +202,7 @@ class Awakening {
         System.out.println("\t*     Alex         *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Alex is a tech expert, known for his hacking skills.");
+        System.out.println("\nAlex is a tech expert, known for his hacking skills.");
         System.out.println("His life is spent in the virtual world, hacking minor systems to survive");
         nextpart();
         nextpart();
@@ -207,7 +221,7 @@ class Awakening {
         System.out.println("\t*     Suhani       *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Suhani is a master in the fields of Physics and Chemistry, a champion of science.");
+        System.out.println("\nSuhani is a master in the fields of Physics and Chemistry, a champion of science.");
         System.out.println("She spends her days experimenting and researching within the Eclipsera,");
         nextpart();
         nextpart();
@@ -226,7 +240,7 @@ class Awakening {
         System.out.println("\t*     Arjun        *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Arjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.");
+        System.out.println("\nArjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.");
         System.out.println("He can analyze any situation and find the best path forward");
         nextpart();
         nextpart();
@@ -245,7 +259,7 @@ class Awakening {
         System.out.println("\t*     Tyson        *");
         System.out.println("\t********************");
         nextpart();
-        System.out.println("Tyson is a true engineering genius, capable of building anything from scratch.");
+        System.out.println("\nTyson is a true engineering genius, capable of building anything from scratch.");
         System.out.println(
                 "Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.");
         nextpart();
@@ -301,6 +315,7 @@ class Calling {
 
                 switch (wire) {
                     case "red":
+                        System.out.println();
                         displayMessage("Arjun: I trust my instincts. Let's do this!", true);
                         nextpart();
                         break;
@@ -330,10 +345,11 @@ class Calling {
             nextpart();
             displayMessage("But even the best leaders need a team.", false);
             nextpart();
-            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            displayMessage("Meet me at the Clock Tower. Midnight.", false);
             nextpart();
             System.out.println();
             displayMessage("Arjun (thinking): 'A team? What does that even mean? I need answers.'", true);
+            waitForEnter("\nPress Enter to Continue");
             System.out.println();
             nextpart();
 
@@ -370,6 +386,7 @@ class Calling {
 
                 switch (chemical) {
                     case "naoh":
+                        System.out.println();
                         displayMessage("Suhani: God I trust you. Hare Krishna!", true);
                         nextpart();
                         break;
@@ -399,7 +416,7 @@ class Calling {
             nextpart();
             displayMessage("If you want to fix what's broken,", false);
             nextpart();
-            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            displayMessage("Meet me at the Clock Tower. Midnight.", false);
             nextpart();
             System.out.println();
             displayMessage("Suhani (thinking): 'Fix what's broken? Who sent this?'", true);
@@ -423,7 +440,7 @@ class Calling {
 
             System.out.println("\n\tOn the mini screen hanging, it's written"); // hint
             nextpart();
-            System.out.println("\n\t'Google a Tech Giant of 2030 Destroyed After DDoS attack"); // hint
+            System.out.println("\n\tGoogle a Tech Giant of 2030 Destroyed After DDoS attack"); // hint
             nextpart();
 
             String attacktype;
@@ -437,6 +454,7 @@ class Calling {
 
                 switch (attacktype) {
                     case "ddos":
+                        System.out.println();
                         displayMessage("Alex: Come on... bypass the firewall!", true);
                         nextpart();
                         break;
@@ -454,7 +472,7 @@ class Calling {
                 }
             } while (!attacktype.equals("ddos"));
 
-            displayMessage("Alex perform DDos attack, and downs the system", false);
+            displayMessage("\nAlex perform DDos attack, and downs the system", false);
             nextpart();
             System.out.println();
 
@@ -466,7 +484,7 @@ class Calling {
             nextpart();
             displayMessage("If you want to break through,", false);
             nextpart();
-            displayMessage("meet me at the Clock Tower. Midnight.", false);
+            displayMessage("Meet me at the Clock Tower. Midnight.", false);
             nextpart();
             System.out.println();
             displayMessage("Alex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
@@ -512,6 +530,7 @@ class Calling {
                         sc.nextLine();
                         break;
                     case "75":
+                        System.out.println();
                         displayMessage("Tyson: Its Time to ROCK!!!", true);
                         nextpart();
                         break;
@@ -524,7 +543,7 @@ class Calling {
                         break;
 
                     default:
-                        displayMessage("\nInvalid choice. Please enter '100', '75', , '50' or '25'.", false);
+                        displayMessage("\nInvalid choice. Please enter '100', '75','50' or '25'.", false);
                         break;
                 }
             } while (!fuel.equals("75"));
@@ -600,8 +619,8 @@ class ClockTower {
         nextpart();
 
         displayMessage("\n<-- Professor: Welcome. You've all proven yourselves", false);
-        displayMessage("\n    capable of surviving in this nightmare. Congratulations", false);
-        displayMessage("\n    But survival isn't enough. Humanity needs you to fight back. -->", false);
+        displayMessage("    capable of surviving in this nightmare. Congratulations", false);
+        displayMessage("    But survival isn't enough. Humanity needs you to fight back. -->", false);
         nextpart();
         nextpart();
 
@@ -623,7 +642,7 @@ class ClockTower {
         displayMessage("Suhani: And what exactly do you expect us to do?", true);
         nextpart();
         System.out.println();
-        
+
         waitForEnter("Press Enter To Reply");
         System.out.println();
         displayMessage("Fight against Nexus", false);
@@ -635,7 +654,7 @@ class ClockTower {
         displayMessage("Alex: And here I thought my day couldn't get worse. Why us?", true);
         nextpart();
         System.out.println();
-        
+
         waitForEnter("Press Enter To Reply");
         System.out.println();
         displayMessage("Because each of you has a skill this system fears.", false);
@@ -649,7 +668,7 @@ class ClockTower {
         displayMessage("Tyson : And what happens if we fail?", true);
         nextpart();
         System.out.println();
-        
+
         waitForEnter("Press Enter To Reply");
         System.out.println();
         displayMessage("Failure is not an option.", false);
@@ -669,8 +688,8 @@ class ClockTower {
         nextpart();
 
         displayMessage("\nProfessor: The system knows you're here.", false);
-        displayMessage("\n    Go now ,I will contact you later", false);
-        displayMessage("\n    Na Nexus amar hai, na uski ghulami!", false);
+        displayMessage("    Go now ,I will contact you later", false);
+        displayMessage("    Together we escape, divided we fall!", false);
         nextpart();
     }
 
@@ -696,5 +715,397 @@ class ClockTower {
             // Wait for 3 seconds
         }
     }
+}
 
+class TheNetwork {
+
+    // classes
+    Scanner sc = new Scanner(System.in);
+
+    void theNetworkMain() {
+
+        System.out.print("\n\t Date: 18 Auguest 2050");
+        System.out.println("\t8:56 PM");
+        System.out.println("\t Location: Leaving the Clock Tower");
+        nextpart();
+
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("|| Scene: The group walks away from the Clock Tower.     ||");
+        System.out.println("|| guided by the Professor's voice through small         ||");
+        System.out.println("|| holographic devices. The fog around them dissipates   ||");
+        System.out.println("|| revealing the glitched architecture of Eclipsera      ||");
+        System.out.println("-----------------------------------------------------------");
+        nextpart();
+        nextpart();
+        nextpart();
+
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Part 1: The Professor's Request      *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+
+        System.out.println("\n*****Switching role To Professor may take some Time*****");
+        nextpart();
+        
+        System.out.println();
+        displayMessage("\n<-- Professor: Listen carefully. To survive in Eclipsera", false);
+        displayMessage("    you need to coordinate in real-time. Our communications ", false);
+        displayMessage("     here are vulnerable to interception by NEXUS . -->", false);
+        nextpart();
+        nextpart();
+        System.out.println();
+
+        displayMessage(" Professor: Alex, this task falls to you.", true);
+
+        System.out.println();
+        displayMessage("Alex: Finally, something I'm good at. What do you need?", true);
+        nextpart();
+        System.out.println();
+
+        waitForEnter("Press Enter To Reply");
+        displayMessage("Code a secure app on the Obscura Network a hidden layer within Eclipsera.", false);
+        nextpart();
+        displayMessage("Once the app is live, I'll add everyone to it for safe communication.", false);
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        displayMessage("Alex: Obscura Network, huh? I like the sound of that. Give me an Day.", true);
+        nextpart();
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Arjun: While you're at it, make sure it's foolproof. We can't afford to leave a trail.", true);
+        nextpart();
+        nextpart();
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Alex: Relax, boss. I'll make it untraceable.", false);
+        displayMessage("Just try not to break anything in the meantime.", false);
+        nextpart();
+        System.out.println();
+
+        nextpart();
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Part 2: Alex's Coding Challenge      *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("|| Scene: Alex isolates himself in a small, glitching      ||");
+        System.out.println("|| bunker with a glowing terminal. The screen              ||");
+        System.out.println("|| with a login sequence.                                  ||");
+        System.out.println("-------------------------------------------------------------");
+        nextpart();
+        nextpart();
+
+        System.out.println("\n*****Switching role To Alex may take some Time*****");
+        nextpart();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Task 1: Encrypting the App           *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("----------------------------------------------");
+        System.out.println("|| Encrypt the data stream:                 ||");
+        System.out.println("|| A = 1, B = 2, C = 3... Z = 26            ||");
+        System.out.println("|| Input the encoded string for \"SAFE\"      ||");
+        System.out.println("----------------------------------------------");
+        nextpart();
+
+        String answer;
+        do {
+
+            System.out.println();
+            System.out.print("> INPUT: ");
+            answer = sc.nextLine();
+
+            displayMessage("\nStay Still While We Encrypt Your System. This may take a while.", false);
+            nextpart();
+            nextpart();
+
+            if (!answer.equals("19165")) {
+                displayMessage("\nEncryption Failed!!!", false);
+                waitForEnter("Press Enter To Rewind");
+            }
+        } while (!answer.equals("19165"));
+
+        System.out.println();
+        displayMessage("Encryption Sucessful", false);
+        System.out.println();
+        displayMessage("Setting up your App it may take some Time", false);
+        nextpart();
+        nextpart();
+        displayMessage("App Setup Sucessful in Obscura Network ", false);
+        System.out.println();
+        waitForEnter("Press Enter to launch  NEXLink.");
+        System.out.println();
+        displayMessage("NEXLink going Live", true);
+        nextpart();
+
+        System.out.println("\n\t Date: 19 Auguest 2050");
+        System.out.println("\t Location: Alex's Basement");
+        nextpart();
+
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("|| Scene: NEXLink goes live, and the Professor adds all characters.     ||");
+        System.out.println("|| Their profiles appear on their individual holographic devices.       ||");
+        System.out.println("--------------------------------------------------------------------------");
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        displayMessage("Professor: Good work, Alex.", true);
+        displayMessage("Everyone, you're now connected through NEXLink.", true);
+        displayMessage("Use it wisely. Tyson, your task is next ", true);
+        System.out.println();
+
+        nextpart();
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Part 3: Tyson's Mission              *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+
+        System.out.println();
+        displayMessage("Professor: Tyson, I need you to create a wearable device.", false);
+        nextpart();
+        displayMessage("that allows role-switching between the four of you.", false);
+        nextpart();
+        displayMessage("\nThis device will be critical for solving challenges ahead.", false);
+        nextpart();
+        displayMessage("\nFor example, Alex might need Suhani's scientific expertise,", false);
+        nextpart();
+        displayMessage("or Suhani might require Arjun's strategic planning.", false);
+        nextpart();
+        displayMessage("\nThe device will let you switch seamlessly.", false);
+        nextpart();
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Tyson: A wearable, huh? I'll need materials. Where am I supposed to find them.", false);
+        nextpart();
+        System.out.println();
+
+        System.out.println();
+        displayMessage(" Professor: There's an abandoned workshop nearby.", false);
+        displayMessage(" filled with scraps. Use your skills to salvage what you need", false);
+        nextpart();
+        nextpart();
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Arjun: We'll cover you. Just make it fast.", true);
+        System.out.println();
+        nextpart();
+
+        System.out.println("\n*****Switching role To Tyson may take some Time*****");
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Task 1: Energy Core Retrieval        *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        System.out.println();
+        
+        System.out.println("\n---------------------------------------------------");
+        System.out.println("|| The energy core is locked inside a panel      ||");
+        System.out.println("|| Solve the riddle to find the code:            ||");
+        System.out.println("----------------------------------------------------");
+        nextpart();
+        nextpart();
+
+        String task1Ans;
+        do {
+            System.out.println();
+            System.out.println("RIDDLE: ");
+            System.out.println("I'm a three-digit number.");
+            System.out.println("My tens digit is five more than my ones digit,");
+            System.out.println("and my hundreds digit is eight less than my tens digit");
+            System.out.println();
+            System.out.print("Enter Number: ");
+            task1Ans = sc.nextLine();
+            if (!task1Ans.equals("194")) {
+                System.out.println("\nWrong Answer Energy core not found!!!");
+                System.out.println();
+                waitForEnter("press Enter To Rewind");
+                sc.nextLine();
+            }
+        } while (!task1Ans.equals("194"));
+
+        displayMessage("\nCorrect! The panel unlocks, and the Energy Core is retrieved.", false);
+
+        System.out.println();
+        nextpart();
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Task 2: Circuit Board Salvage        *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+        System.out.println();
+        
+        System.out.println("\n-------------------------------------------------------------");
+        System.out.println("|| The circuit board is trapped under tangled wires.       ||");
+        System.out.println("|| You must untangle them. Arrange the sequence            ||");
+        System.out.println("|| Wires: [Red, Blue, Green, Yellow]                       ||");
+        System.out.println("-------------------------------------------------------------");
+        nextpart();
+
+        String task2Ans;
+        do {
+
+            System.out.println();
+            displayMessage("FORMATE --> RBGY", false);
+            System.out.println();
+
+            System.out.println("Condition:");
+            System.out.println();
+            System.out.println("Red must be before Blue.");
+            System.out.println("Yellow must be last.");
+            System.out.println("Green must come before Blue.");
+            System.out.println();
+            System.out.print("Enter Sequence: ");
+            sc.nextLine();
+            task2Ans = sc.nextLine();
+
+            if (!task2Ans.equalsIgnoreCase("rgby")) {
+                System.out.println("\nWrong Answer Circuit board not Found!!!");
+                System.out.println();
+                waitForEnter("press Enter To Rewind");
+                sc.nextLine();
+            }
+        } while (!task2Ans.equalsIgnoreCase("rgby"));
+
+        displayMessage("\nCorrect! The circuit board is freed.", false);
+        System.out.println();
+
+        nextpart();
+        System.out.println("--------------------------------------------------------");
+        System.out.println("|| Scene: Tyson joins the wires in circuit board,     ||");
+        System.out.println("|| And Supply it Energy from Energy Core              ||");
+        System.out.println("--------------------------------------------------------");
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        displayMessage("Professor: Thats the Spirit my BOY!, Tyson.", false);
+        nextpart();
+        displayMessage("Everyone, see the feature in video call", false);
+        nextpart();
+        displayMessage("Tyson lets test the Device ", false);
+        System.out.println();
+
+        nextpart();
+        System.out.println("\n\t\t\t******************************************************");
+        System.out.println("\t\t\t*               Part 4: Testing the Device      *");
+        System.out.println("\t\t\t******************************************************");
+        nextpart();
+
+        nextpart();
+        System.out.println();
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("|| Scene: The team gathers as Tyson demonstrates the wearable device     ||");
+        System.out.println("|| a sleek bracelet with a glowing interface.                            ||");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println();
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        displayMessage("Tyson: Alright, this beauty is ready. Here's how it works:", false);
+        nextpart();
+        displayMessage("press the button, and a prompt will let you switch to any character.", false);
+        nextpart();
+        displayMessage("Once you confirm, you'll transfer to their location instantly.", false);
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Suhani: Impressive. Let's see if it works", true);
+        System.out.println();
+
+        System.out.println("\n*****Switching role To Alex may take some Time*****");
+        nextpart();
+        nextpart();
+
+        System.out.println();
+        System.out.println();
+        displayMessage("\t\t\t[Gameplay Interaction: Testing the Role Switcher]", false);
+        displayMessage("\t\t\t[Alex uses the device]", false);
+        nextpart();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("> Switch on Device");
+        nextpart();
+        System.out.println("Prompt: Switch to: ");
+        System.out.println("1) Arjun");
+        System.out.println("2) Suhani");
+        System.out.println("3) Tyson");
+        System.out.print("> Input: ");
+        nextpart();
+        displayMessage("\n Alex Enters 1.", false);
+        nextpart();
+        System.out.println();
+        displayMessage("Transferring to Arjun... Successful!", true);
+        System.out.println();
+
+        nextpart();
+        System.out.println("-----------------------------------");
+        System.out.println("|| Ending Scene OF Chapter 3     ||");
+        System.out.println("-----------------------------------");
+        nextpart();
+
+        System.out.println();
+        displayMessage("The group stands together, testing the device and preparing for the journey ahead.", true);
+        System.out.println();
+
+        System.out.println();
+        displayMessage("Professor: ", false);
+        displayMessage("Good. Now that you're all connected and equipped.", false);
+        nextpart();
+        displayMessage("the real mission begins. Stay sharp, and remember:", false);
+        nextpart();
+        displayMessage("Together we escape, divided we fall!", false);
+        nextpart();
+        System.out.println();
+        nextpart();
+        nextpart();
+
+        System.out.println("\t\t\t#==========================================================#");
+        System.out.println("\t\t\t<>                                                        <>");
+        System.out.println("\t\t\t<>      \"Episode 3 Complete: The Network Established\"     <>");
+        System.out.println("\t\t\t<>                                                        <>");
+        System.out.println("\t\t\t#==========================================================#");
+    }
+
+    // Method to display a message with optional emphasis
+    void displayMessage(String message, boolean addStars) {
+        if (addStars) {
+            System.out.println("* " + message + " *");
+        } else {
+            System.out.println(message);
+        }
+    }
+
+    // Utility to prompt and wait for the user to press Enter
+    void waitForEnter(String prompt) {
+        System.out.println(prompt);
+        sc.nextLine();
+    }
+
+    // Method to add a pause of 3 seconds between scenes
+    void nextpart() {
+        long nextsentence = System.currentTimeMillis(); // Store the start time
+        while (System.currentTimeMillis() - nextsentence < 3000) {
+            // Wait for 3 seconds
+        }
+    }
 }
