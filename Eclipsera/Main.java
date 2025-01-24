@@ -149,8 +149,7 @@ class Awakening extends Methods {
         delay(3);
         simpleStatement("\nBut four individuals stand strong, unaware of their destiny,", true);
         simpleStatement("chosen to rise and bring the change.", true);
-        delay(3);
-        delay(3);
+        delay(5);
         simpleStatement("\nTheir story begins here.", true);
         delay(3);
     }
@@ -163,8 +162,7 @@ class Awakening extends Methods {
         simpleStatement("\nThe Professor is a brilliant mind, a pioneering researcher in creating the Nexus.",
                 true);
         simpleStatement("He's the scientist who helped build the foundations of the virtual world,", true);
-        delay(3);
-        delay(3);
+        delay(6);
 
         simpleStatement("\nBut now, the Professor is determined to undo the mistake", true);
         delay(3);
@@ -183,82 +181,60 @@ class Awakening extends Methods {
 
     // Method For Tech Introduction (Initial name --> Alex)
     void alexIntroduction() {
-        characterIntroduction("Alex");
-        delay(3);
-
-        simpleStatement("\nAlex is a tech expert, known for his hacking skills.", true);
-        simpleStatement("His life is spent in the virtual world, hacking minor systems to survive", true);
-        delay(3);
-        delay(3);
-
-        waitForEnter("\nPress Enter for overview.");
-
-        simpleStatement("\nA true hacker at heart,", true);
-        simpleStatement("solving complex problems very easily", true);
-        delay(3);
-
-        waitForEnter("\nPress Enter To View next Character.");
+        String name = "Alex";
+        String statement1 ="\nAlex is a tech expert, known for his hacking skills.";
+        String statement2 = "His life is spent in the virtual world, hacking minor systems to survive";
+        String statement3 ="\nA true hacker at heart,";
+        String statement4 ="solving complex problems very easily";
+        Introduction(name, statement1, statement2, statement3, statement4);
     }
 
     // Method For Scientist Introduction (Initial name --> Suhani)
     void suhaniIntroduction() {
-        characterIntroduction("Suhani");
-        delay(3);
-
-        simpleStatement("\nSuhani is a master in the fields of Physics and Chemistry, a champion of science.",
-                true);
-        simpleStatement("She spends her days experimenting and researching within the Eclipsera,", true);
-        delay(3);
-        delay(3);
-
-        waitForEnter("\nPress Enter for overview.");
-
-        simpleStatement("\nSuhani's understanding of the natural world", true);
-        simpleStatement("makes her an indispensable asset for freedom.", true);
-        delay(3);
-
-        waitForEnter("\nPress Enter To View next Character.");
-        delay(3);
+        String name = "Suhani";
+        String statement1 = "\nSuhani is a master in the fields of Physics and Chemistry, a champion of science.";
+        String statement2 = "She spends her days experimenting and researching within the Eclipsera,";
+        String statement3 = "\nSuhani's understanding of the natural world";
+        String statement4 = "makes her an indispensable asset for freedom.";
+        Introduction(name, statement1, statement2, statement3, statement4);
     }
 
     // Method For Strategy Maker Introduction (Initial name --> Arjun)
     void arjunIntroduction() {
-        characterIntroduction("Arjun");
-        delay(3);
-
-        simpleStatement(
-                "\nArjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.",
-                true);
-        simpleStatement("He can analyze any situation and find the best path forward", true);
-        delay(3);
-        delay(3);
-
-        waitForEnter("\nPress Enter for overview.");
-
-        simpleStatement("\nArjun's intelligence and leadership skills", true);
-        simpleStatement("have earned him a reputation as a leader and problem solver.", true);
-        delay(3);
-
-        waitForEnter("\nPress Enter To View next Character.");
+        String name = "Arjun";
+        String statement1 = "\nArjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.";
+        String statement2 = "He can analyze any situation and find the best path forward";
+        String statement3 = "\nArjun's intelligence and leadership skills";
+        String statement4 = "have earned him a reputation as a leader and problem solver.";
+        Introduction(name, statement1, statement2, statement3, statement4);
     }
 
     // Method For hardWare engineer Maker Introduction (Initial name --> Tyson)
     void tysonIntroduction() {
-        characterIntroduction("Tyson");
+        String name = "Tyson";
+        String statement1 = "\nTyson is a true engineering genius, capable of building anything from scratch.";
+        String statement2 = "Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.";
+        String statement3 = "\nFrom gadgets to full-scale machines, Tyson can build it all,";
+        String statement4 = "using his skills to create tools that will aid in the fight for freedom.";
+        Introduction(name, statement1, statement2, statement3, statement4);
+    }
+
+    //method for intoduction of any character
+    void Introduction(String name, String statement1, String statement2 , String statement3 , String statement4) {
+        characterIntroduction("name");
         delay(3);
 
-        simpleStatement("\nTyson is a true engineering genius, capable of building anything from scratch.",
-                true);
-        simpleStatement(
-                "Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.", true);
-        delay(3);
-        delay(3);
+        simpleStatement(statement1, true);
+        simpleStatement(statement2, true);
+        delay(6);
 
         waitForEnter("\nPress Enter for overview.");
 
-        simpleStatement("\nFrom gadgets to full-scale machines, Tyson can build it all,", true);
-        simpleStatement("using his skills to create tools that will aid in the fight for freedom.", true);
+        simpleStatement(statement3, true);
+        simpleStatement(statement4, true);
         delay(3);
+
+        waitForEnter("\nPress Enter To View next Character.");
     }
 }
 
@@ -274,8 +250,7 @@ class Calling extends Methods {
 
             sceneTitle(
                     "Scene: A dark chamber filled with laser traps and crumbling walls.Arjun, the strategist, must diffuse a tripwire to escape the room.");
-            delay(3);
-            delay(3);
+            delay(6);
 
             simpleStatement("\n<--- Arjun: One wrong move, and this whole place", true);
             simpleStatement("          goes up in flames. Focus, Arjun. focus. --->", true);
@@ -298,7 +273,6 @@ class Calling extends Methods {
                         simpleStatement("\nArjun: I trust my instincts. Let's do this!", true);
                         delay(3);
                         break;
-
                     case "green":
                     case "yellow":
                         simpleStatement("\nBOOM! The room explodes into flames. Press Enter to rewind.", false);
@@ -314,21 +288,18 @@ class Calling extends Methods {
 
             simpleStatement("\nArjun cuts the RED wire, and the room powers down.", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("A faint voice echoes from a hidden speaker above.", true);
+            simpleStatement("\nA faint voice echoes from a hidden speaker above.", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("Voice: You're a natural-born leader, Arjun.", true);
+            simpleStatement("\nVoice: You're a natural-born leader, Arjun.", true);
             delay(3);
             simpleStatement("But even the best leaders need a team.", true);
             delay(3);
             simpleStatement("Meet me at the Clock Tower. Midnight.", true);
             delay(3);
 
-            simpleStatement("", true);
-            simpleStatement("Arjun (thinking): 'A team? What does that even mean? I need answers.'", true);
+            simpleStatement("\nArjun (thinking): 'A team? What does that even mean? I need answers.'", true);
 
             waitForEnter("\nPress Enter to Continue");
             simpleStatement("", true);
@@ -340,9 +311,7 @@ class Calling extends Methods {
 
             sceneTitle(
                     "Scene: A futuristic lab with shattered glass and chemical spills. Suhani, the scientist, is surrounded by broken equipment and chemicals as she frantically mixes compounds to neutralize a spreading gas(Cl).");
-            delay(3);
-            delay(3);
-            delay(3);
+            delay(9);
 
             simpleStatement("\n<--- Suhani: I need a stabilizer.", true);
             simpleStatement("      Without it, this gas will take me out --->", true);
@@ -384,21 +353,18 @@ class Calling extends Methods {
 
             simpleStatement("\nSuhani pours NaOH in mixture, and the gas stops spreading.", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("revealing a monitor flashing a message:", true);
+            simpleStatement("\nrevealing a monitor flashing a message:", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("Your brilliance is wasted here, Suhani.", true);
+            simpleStatement("\nYour brilliance is wasted here, Suhani.", true);
             delay(3);
             simpleStatement("If you want to fix what's broken,", true);
             delay(3);
             simpleStatement("Meet me at the Clock Tower. Midnight.", true);
             delay(3);
 
-            simpleStatement("", true);
-            simpleStatement("Suhani (thinking): 'Fix what's broken? Who sent this?'", true);
+            simpleStatement("\nSuhani (thinking): 'Fix what's broken? Who sent this?'", true);
             simpleStatement("", true);
             delay(3);
 
@@ -408,8 +374,7 @@ class Calling extends Methods {
 
             sceneTitle(
                     "Scene: A bunker, wires hanging in every corner. Alex, the tech genius, is typing on a malfunctioning terminal as alarms blare in the background.");
-            delay(3);
-            delay(3);
+            delay(6);
 
             simpleStatement("\n<-- Alex: I will hack this at any cost!", true);
             simpleStatement("    What should I do?-->", true);
@@ -452,21 +417,18 @@ class Calling extends Methods {
 
             simpleStatement("\nAlex perform DDos attack, and downs the system", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("The screen flashes red: and a new message appears", true);
+            simpleStatement("\nThe screen flashes red: and a new message appears", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("This system is only the beginning, Alex.", true);
+            simpleStatement("\nThis system is only the beginning, Alex.", true);
             delay(3);
             simpleStatement("If you want to break through,", true);
             delay(3);
             simpleStatement("Meet me at the Clock Tower. Midnight.", true);
             delay(3);
 
-            simpleStatement("", true);
-            simpleStatement("Alex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
+            simpleStatement("\nAlex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
             simpleStatement("", true);
             delay(3);
 
@@ -477,8 +439,7 @@ class Calling extends Methods {
 
             sceneTitle(
                     "Scene: A workshop filled with broken machines and sparking wires. Tyson, the hardware engineer, A combination of brilliant Mind and powerful hands");
-            delay(3);
-            delay(3);
+            delay(6);
 
             simpleStatement("\n<-- Tyson: Just one more connection,", true);
             simpleStatement("    and this place will hold for another day! -->", true);
@@ -529,17 +490,15 @@ class Calling extends Methods {
 
             simpleStatement("and a hologram projects from its core.", true);
             delay(3);
-            simpleStatement("", true);
 
-            simpleStatement("The hologram speaks: You build for survival, Tyson.", true);
+            simpleStatement("\nThe hologram speaks: You build for survival, Tyson.", true);
             delay(3);
             simpleStatement("But what if I told you there's more to fight for?", true);
             delay(3);
             simpleStatement("Meet me at the Clock Tower. Midnight.", true);
             delay(3);
 
-            simpleStatement("", true);
-            simpleStatement("Tyson (thinking): 'More to fight for? What the hell is going on?", true);
+            simpleStatement("\nTyson (thinking): 'More to fight for? What the hell is going on?", true);
             simpleStatement("", true);
             delay(3);
         }
@@ -555,9 +514,7 @@ class ClockTower extends Methods {
 
         sceneTitle(
                 "Scene: A towering structure surrounded in mist, One by one, the four characters arrive, A hologram of a figure flickers before them it's the mysterious Professor");
-        delay(3);
-        delay(3);
-        delay(3);
+        delay(9);
 
         swichingCharacter("Professor");
         delay(3);
@@ -565,28 +522,22 @@ class ClockTower extends Methods {
         simpleStatement("\n<-- Professor: Welcome. You've all proven yourselves", true);
         simpleStatement("    capable of surviving in this nightmare. Congratulations", true);
         simpleStatement("    But survival isn't enough. Humanity needs you to fight back. -->", true);
-        delay(3);
-        delay(3);
+        delay(6);
 
-        simpleStatement("", true);
-        simpleStatement("Arjun: Who are you, and why should we trust you?", true);
+        simpleStatement("\nArjun: Who are you, and why should we trust you?\n", true);
         delay(3);
-        simpleStatement("", true);
 
         waitForEnter("Press Enter To Reply");
-        simpleStatement("", true);
-        simpleStatement("I'm the one who knows how to get you out of here.", true);
+        simpleStatement("\nI'm the one who knows how to get you out of here.", true);
         delay(3);
         simpleStatement("This prison, Eclipsera, was built to enslave us.", true);
         delay(3);
         simpleStatement("But every system has a weakness, and I've found it.", true);
         delay(3);
 
-        simpleStatement("", true);
-        simpleStatement("Suhani: And what exactly do you expect us to do?", true);
+        simpleStatement("\nSuhani: And what exactly do you expect us to do?\n", true);
         delay(3);
-        simpleStatement("", true);
-
+        
         waitForEnter("Press Enter To Reply");
         simpleStatement("", true);
         simpleStatement("Fight against Nexus", true);
@@ -596,44 +547,33 @@ class ClockTower extends Methods {
         simpleStatement("and free humanity.", true);
         delay(3);
 
-        simpleStatement("", true);
-        simpleStatement("Alex: And here I thought my day couldn't get worse. Why us?", true);
+        simpleStatement("\nAlex: And here I thought my day couldn't get worse. Why us?\n", true);
         delay(3);
-        simpleStatement("", true);
 
         waitForEnter("Press Enter To Reply");
-        simpleStatement("", true);
-        simpleStatement("Because each of you has a skill this system fears.", true);
+        simpleStatement("\nBecause each of you has a skill this system fears.", true);
         delay(3);
         simpleStatement("Suhani , Alex and Tyson you all have different Skills", true);
         delay(3);
         simpleStatement("and Arjun Knows when and where to execute them .", true);
         delay(3);
 
-        simpleStatement("", true);
-        simpleStatement("Tyson : And what happens if we fail?", true);
+        simpleStatement("\nTyson : And what happens if we fail?\n", true);
         delay(3);
-        simpleStatement("", true);
 
         waitForEnter("Press Enter To Reply");
-        simpleStatement("", true);
-        simpleStatement("Failure is not an option.", true);
+        simpleStatement("\nFailure is not an option.", true);
         delay(1);
         simpleStatement("You're humanity's last hope.", true);
         delay(3);
-        simpleStatement("", true);
-        simpleStatement("", true);
 
-        System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
+        System.out.println("\n\n\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
         System.out.println("\t<>                                                                       <>");
         System.out.println("\t<>      The hologram flickers as the Clock Tower begins to shake.        <>");
         System.out.println("\t<>      The Professor's voice grows urgent!!!                            <>");
         System.out.println("\t<>                                                                       <>");
-        System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
-        simpleStatement("", true);
-
-        delay(3);
-        delay(3);
+        System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>\n");
+        delay(6);
 
         simpleStatement("\nProfessor: The system knows you're here.", true);
         simpleStatement("    Go now ,I will contact you later", true);
@@ -657,9 +597,7 @@ class TheNetwork extends Methods {
 
         sceneTitle(
                 "Scene: The group walks away from the Clock Tower. guided by the Professor's voice through small holographic devices. The fog around them dissipates revealing the glitched architecture of Eclipsera");
-        delay(3);
-        delay(3);
-        delay(3);
+        delay(9);
 
         partTitle("Part 1: The Professor's Request");
         delay(3);
@@ -667,72 +605,49 @@ class TheNetwork extends Methods {
         swichingCharacter("Professor");
         delay(3);
 
-        simpleStatement("", true);
-        simpleStatement("\n<-- Professor: Listen carefully. To survive in Eclipsera", true);
+        simpleStatement("\n\n<-- Professor: Listen carefully. To survive in Eclipsera", true);
         simpleStatement("    you need to coordinate in real-time. Our communications ", true);
         simpleStatement("     here are vulnerable to interception by NEXUS . -->", true);
-        delay(3);
-        delay(3);
-        simpleStatement("", true);
-        simpleStatement(" Professor: Alex, this task falls to you.", true);
+        delay(6);
+        simpleStatement(" \nProfessor: Alex, this task falls to you.", true);
         delay(3);
 
-        simpleStatement("", true);
 
-        simpleStatement("Alex: Finally, something I'm good at. What do you need?", true);
+        simpleStatement("\nAlex: Finally, something I'm good at. What do you need?\n", true);
         delay(3);
-        simpleStatement("", true);
 
         waitForEnter("Press Enter To Reply");
-        simpleStatement("Code a secure app on the Obscura Network a hidden layer within Eclipsera.", true);
+        simpleStatement("\nCode a secure app on the Obscura Network a hidden layer within Eclipsera.", true);
         delay(3);
         simpleStatement("Once the app is live, I'll add everyone to it for safe communication.", true);
-        delay(3);
+        delay(6);
+
+        simpleStatement("\nAlex: Obscura Network, huh? I like the sound of that. Give me an Day.", true);
         delay(3);
 
-        simpleStatement("", true);
+        simpleStatement("\n\nArjun: While you're at it, make sure it's foolproof. We can't afford to leave a trail.", true);
+        delay(6);
 
-        simpleStatement("Alex: Obscura Network, huh? I like the sound of that. Give me an Day.", true);
+        simpleStatement("\n\nAlex: Relax, boss. I'll make it untraceable.", true);
+        simpleStatement("Just try not to break anything in the meantime.\n", true);
         delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
-
-        simpleStatement("Arjun: While you're at it, make sure it's foolproof. We can't afford to leave a trail.", true);
-        delay(3);
-        delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
-
-        simpleStatement("Alex: Relax, boss. I'll make it untraceable.", true);
-        simpleStatement("Just try not to break anything in the meantime.", true);
-        delay(3);
-        simpleStatement("", true);
 
         delay(3);
         partTitle("Part 2: Alex's Coding Challenge");
         delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
+        simpleStatement("\n", true);
 
         sceneTitle(
                 "Scene: Alex isolates himself in a small, glitching bunker with a glowing terminal. The screen with a login sequence.");
-        delay(3);
-        delay(3);
+        delay(6);
 
         swichingCharacter("Alex");
         delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
+        simpleStatement("\n", true);
 
         taskTitle("Task 1: Encrypting the App");
         delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
+        simpleStatement("\n", true);
 
         System.out.println("----------------------------------------------");
         System.out.println("|| Encrypt the data stream:                 ||");
@@ -744,14 +659,11 @@ class TheNetwork extends Methods {
         String answer;
         do {
 
-            simpleStatement("", true);
-
-            simpleStatement("> INPUT: ", false);
+            simpleStatement("\n> INPUT: ", false);
             answer = sc.nextLine();
 
             simpleStatement("\nStay Still While We Encrypt Your System. This may take a while.", true);
-            delay(3);
-            delay(3);
+            delay(6);
 
             if (!answer.equals("19165")) {
                 simpleStatement("\nEncryption Failed!!!", true);
@@ -759,21 +671,15 @@ class TheNetwork extends Methods {
             }
         } while (!answer.equals("19165"));
 
-        simpleStatement("", true);
-
-        simpleStatement("Encryption Sucessful", true);
-        simpleStatement("", true);
+        simpleStatement("\nEncryption Sucessful\n", true);
 
         simpleStatement("Setting up your App it may take some Time", true);
-        delay(3);
-        delay(3);
+        delay(6);
         simpleStatement("App Setup Sucessful in Obscura Network ", true);
         simpleStatement("", true);
 
         waitForEnter("Press Enter to launch  NEXLink.");
-        simpleStatement("", true);
-
-        simpleStatement("NEXLink going Live", true);
+        simpleStatement("\nNEXLink going Live", true);
         delay(3);
 
         simpleStatement("\n\t Date: 19 Auguest 2050", true);
@@ -782,23 +688,19 @@ class TheNetwork extends Methods {
 
         sceneTitle(
                 "Scene: NEXLink goes live, and the Professor adds all characters. Their profiles appear on their individual holographic devices.");
-        delay(3);
-        delay(3);
+        delay(6);
 
-        simpleStatement("", true);
 
-        simpleStatement("Professor: Good work, Alex.", true);
+        simpleStatement("\nProfessor: Good work, Alex.", true);
         simpleStatement("Everyone, you're now connected through NEXLink.", true);
-        simpleStatement("Use it wisely. Tyson, your task is next ", true);
-        simpleStatement("", true);
+        simpleStatement("Use it wisely. Tyson, your task is next\n ", true);
 
         delay(3);
         partTitle("Part 3: Tyson's Mission");
         delay(3);
 
-        simpleStatement("", true);
 
-        simpleStatement("Professor: Tyson, I need you to create a wearable device.", true);
+        simpleStatement("\nProfessor: Tyson, I need you to create a wearable device.", true);
         delay(3);
         simpleStatement("that allows role-switching between the four of you.", true);
         delay(3);
@@ -810,77 +712,56 @@ class TheNetwork extends Methods {
         delay(3);
         simpleStatement("\nThe device will let you switch seamlessly.", true);
         delay(3);
-        simpleStatement("", true);
 
-        simpleStatement("", true);
-
-        simpleStatement("Tyson: A wearable, huh? I'll need materials. Where am I supposed to find them.", true);
+        simpleStatement("\n\nTyson: A wearable, huh? I'll need materials. Where am I supposed to find them.", true);
         delay(3);
-        simpleStatement("", true);
 
-        simpleStatement("", true);
-
-        simpleStatement(" Professor: There's an abandoned workshop nearby.", true);
+        simpleStatement("\n\n Professor: There's an abandoned workshop nearby.", true);
         simpleStatement(" filled with scraps. Use your skills to salvage what you need", true);
         delay(3);
         delay(3);
-        simpleStatement("", true);
 
-        simpleStatement("", true);
-
-        simpleStatement("Arjun: We'll cover you. Just make it fast.", true);
-        simpleStatement("", true);
-
+        simpleStatement("\n\nArjun: We'll cover you. Just make it fast.\n", true);
         delay(3);
 
         swichingCharacter("Tyson");
-        delay(3);
-        delay(3);
+        delay(6);
 
         simpleStatement("", true);
 
         taskTitle("Task 1: Energy Core Retrieval");
         delay(3);
-        simpleStatement("", true);
 
-        System.out.println("\n---------------------------------------------------");
+        System.out.println("\n\n---------------------------------------------------");
         System.out.println("|| The energy core is locked inside a panel      ||");
         System.out.println("|| Solve the riddle to find the code:            ||");
         System.out.println("----------------------------------------------------");
-        delay(3);
-        delay(3);
+        delay(6);
 
         String task1Ans;
         do {
-            simpleStatement("", true);
-
-            simpleStatement("RIDDLE: ", true);
+            simpleStatement("\nRIDDLE: ", true);
             simpleStatement("I'm a three-digit number.", true);
             simpleStatement("My tens digit is five more than my ones digit,", true);
-            simpleStatement("and my hundreds digit is eight less than my tens digit", true);
-            simpleStatement("", true);
+            simpleStatement("and my hundreds digit is eight less than my tens digit\n", true);
 
             System.out.print("Enter Number: ");
             task1Ans = sc.nextLine();
             if (!task1Ans.equals("194")) {
-                simpleStatement("\nWrong Answer Energy core not found!!!", true);
-                simpleStatement("", true);
+                simpleStatement("\nWrong Answer Energy core not found!!!\n", true);
 
                 waitForEnter("press Enter To Rewind");
                 sc.nextLine();
             }
         } while (!task1Ans.equals("194"));
 
-        simpleStatement("\nCorrect! The panel unlocks, and the Energy Core is retrieved.", true);
-
-        simpleStatement("", true);
+        simpleStatement("\nCorrect! The panel unlocks, and the Energy Core is retrieved.\n", true);
 
         delay(3);
         taskTitle("Task 2: Circuit Board Salvage");
         delay(3);
-        simpleStatement("", true);
 
-        System.out.println("\n-------------------------------------------------------------");
+        System.out.println("\n\n-------------------------------------------------------------");
         System.out.println("|| The circuit board is trapped under tangled wires.       ||");
         System.out.println("|| You must untangle them. Arrange the sequence            ||");
         System.out.println("|| Wires: [Red, Green, Yellow, BlUE]                       ||");
@@ -890,45 +771,33 @@ class TheNetwork extends Methods {
         String task2Ans;
         do {
 
-            simpleStatement("", true);
-
-            simpleStatement("FORMATE --> GRBY", true);
-            simpleStatement("", true);
-
+            simpleStatement("\nFORMATE --> GRBY\n", true);
             simpleStatement("Condition:", true);
-            simpleStatement("", true);
-
-            simpleStatement("Red must be before Blue.", true);
+            simpleStatement("\nRed must be before Blue.", true);
             simpleStatement("Yellow must be last.", true);
             simpleStatement("Green must come before Blue.", true);
-            simpleStatement("", true);
 
-            simpleStatement("Enter Sequence: ", false);
+            simpleStatement("\nEnter Sequence: ", false);
             task2Ans = sc.nextLine();
 
             if (!task2Ans.equalsIgnoreCase("rgby")) {
-                simpleStatement("\nWrong Answer Circuit board not Found!!!", true);
-                simpleStatement("", true);
+                simpleStatement("\nWrong Answer Circuit board not Found!!!\n", true);
                 waitForEnter("press Enter To Rewind");
             }
         } while (!task2Ans.equalsIgnoreCase("rgby"));
 
-        simpleStatement("\nCorrect! The circuit board is freed.", true);
-        simpleStatement("", true);
+        simpleStatement("\nCorrect! The circuit board is freed.\n", true);
 
         delay(3);
         sceneTitle("Scene: Tyson joins the wires in circuit board, And Supply it Energy from Energy Core");
-        delay(3);
-        delay(3);
+        delay(6);
 
-        simpleStatement("", true);
 
-        simpleStatement("Professor: Thats the Spirit my BOY!, Tyson.", true);
+        simpleStatement("\nProfessor: Thats the Spirit my BOY!, Tyson.", true);
         delay(3);
         simpleStatement("Everyone, see the feature in video call", true);
         delay(3);
-        simpleStatement("Tyson lets test the Device ", true);
-        simpleStatement("", true);
+        simpleStatement("Tyson lets test the Device\n", true);
 
         delay(3);
         partTitle("Part 4: Testing the Device");
@@ -939,43 +808,27 @@ class TheNetwork extends Methods {
 
         sceneTitle(
                 "Scene: The team gathers as Tyson demonstrates the wearable device a sleek bracelet with a glowing interface.");
-        simpleStatement("", true);
+        delay(6);
 
-        delay(3);
-        delay(3);
-
-        simpleStatement("", true);
-
-        simpleStatement("Tyson: Alright, this beauty is ready. Here's how it works:", true);
+        simpleStatement("\n\nTyson: Alright, this beauty is ready. Here's how it works:", true);
         delay(3);
         simpleStatement("press the button, and a prompt will let you switch to any character.", true);
         delay(3);
         simpleStatement("Once you confirm, you'll transfer to their location instantly.", true);
-        simpleStatement("", true);
+        
 
-        simpleStatement("", true);
-
-        simpleStatement("Suhani: Impressive. Let's see if it works", true);
-        simpleStatement("", true);
+        simpleStatement("\n\nSuhani: Impressive. Let's see if it works\n", true);
         delay(2);
 
         swichingCharacter("Alex");
+        delay(6);
+
+
+        simpleStatement("\n\n\t\t\t[Gameplay Interaction: Testing the Role Switcher]", true);
+        simpleStatement("\n\t\t\t[Alex uses the device]", true);
         delay(3);
-        delay(3);
 
-        simpleStatement("", true);
-
-        simpleStatement("", true);
-
-        simpleStatement("\t\t\t[Gameplay Interaction: Testing the Role Switcher]", true);
-        simpleStatement("", true);
-        simpleStatement("\t\t\t[Alex uses the device]", true);
-        delay(3);
-        simpleStatement("", true);
-
-        simpleStatement("", true);
-
-        simpleStatement("> Switch on Device" , true);
+        simpleStatement("\n\n> Switch on Device" , true);
         delay(3);
         simpleStatement("Prompt: Switch to: " , true);
         simpleStatement("1) Arjun" , true);
@@ -985,10 +838,8 @@ class TheNetwork extends Methods {
         delay(3);
         simpleStatement("\n Alex Enters 1.", true);
         delay(3);
-        simpleStatement("", true);
 
-        simpleStatement("Transferring to Arjun... Successful!", true);
-        simpleStatement("", true);
+        simpleStatement("\nTransferring to Arjun... Successful!\n", true);
 
         delay(3);
         System.out.println("-----------------------------------");
@@ -996,26 +847,17 @@ class TheNetwork extends Methods {
         System.out.println("-----------------------------------");
         delay(3);
 
-        simpleStatement("", true);
-
-        simpleStatement("The group stands together, testing the device and preparing for the journey ahead.", true);
-        simpleStatement("", true);
+        simpleStatement("\nThe group stands together, testing the device and preparing for the journey ahead.\n", true);
         delay(3);
 
-        simpleStatement("", true);
-
-        simpleStatement("Professor: ", true);
+        simpleStatement("\nProfessor: ", true);
         simpleStatement("Good. Now that you're all connected and equipped.", true);
         delay(3);
         simpleStatement("the real mission begins. Stay sharp, and remember:", true);
         delay(3);
-        simpleStatement("Together we escape, divided we fall!", true);
+        simpleStatement("Together we escape, divided we fall!\n", true);
         delay(3);
-        simpleStatement("", true);
-
-        delay(3);
-        delay(3);
-
+        
         System.out.println("\t\t\t#==========================================================#");
         System.out.println("\t\t\t<>                                                        <>");
         System.out.println("\t\t\t<>      \"Episode 3 Complete: The Network Established\"     <>");
