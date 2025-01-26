@@ -26,7 +26,7 @@ public class Main {
         System.out.println("\t\t\t*            ~Together we escape, divided we fall!   *");
         System.out.println("\t\t\t*                                                    *");
         System.out.println("\t\t\t******************************************************");
-        MH.delay(5);
+        MH.delay(4);
 
         // Chapter One Awakening
         AK.EnterPoint();
@@ -54,7 +54,7 @@ class Awakening extends Methods {
 
         initialDialogues();
 
-        simpleStatement("\nFirst Lets Introduce with Characters.", true);
+        simpleStatement("\nFirst Lets Introduce with Characters.", true, "header");
         waitForEnter("Press Enter To Continue...");
 
         professorIntroduction();
@@ -63,35 +63,34 @@ class Awakening extends Methods {
         alexIntroduction();
         tysonIntroduction();
 
-        waitForEnter("\nPress Enter To Continue");
-        delay(2);
-
         episodeTitle("Episode 1: Calling");
         delay(3);
 
         swichingCharacter("Professor");
 
         delay(3);
-        simpleStatement("\nFirst of all", true);
-        simpleStatement("As Professor you need to gather TEAM.\n", true);
+        simpleStatement("\nFirst of all", false, "plain");
+        delay(2);
+        simpleStatement("As Professor you need to gather TEAM.\n", true, "plain");
         delay(3);
 
         for (int i = 1; i < 5; i++) {
             flag = true;
 
-            simpleStatement("Select a member to add to the team:", true);
-            simpleStatement("Press 1 for Arjun", true);
-            simpleStatement("Press 2 for Suhani", true);
-            simpleStatement("Press 3 for Alex", true);
-            simpleStatement("Press 4 for Tyson\n", true);
-            simpleStatement("Enter number: ", false);
+            System.out.println("Select a member to add to the team:");
+            System.out.println("Press 1 for Arjun");
+            System.out.println("Press 2 for Suhani");
+            System.out.println("Press 3 for Alex");
+            System.out.println("Press 4 for Tyson\n");
+            System.out.print("Enter number: ");
             int select = sc.nextInt();
             sc.nextLine();
 
             alreadyCalled[i - 1] = select;
             for (int j = 0; j < alreadyCalled.length; j++) {
                 if (select == alreadyCalled[j] && j != (i - 1)) {
-                    simpleStatement("\nAlready Called Call Someone Else\n", true);
+                    System.out.println();
+                    simpleStatement("\nAlready Called Call Someone Else\n", true, "emphasis");
                     i--;
                     flag = false;
                     break;
@@ -99,16 +98,17 @@ class Awakening extends Methods {
             }
 
             if (select < 1 || select > 4) {
-                simpleStatement("\n Please Enter correct number between 1 to 4\n", true);
+                System.out.println();
+                simpleStatement("\n Please Enter correct number between 1 to 4\n", true, "emphasis");
                 i--;
             } else if (flag) {
                 Call.callingMain(select);
             }
         }
+
         // End Of Episode 1 calling
 
         // Episode 2 Clock Tower
-        waitForEnter("\nPress Enter To Continue...");
         delay(2);
 
         episodeTitle("Episode 2: Clock Tower");
@@ -126,115 +126,178 @@ class Awakening extends Methods {
 
     // Method for initial Dialogues
     void initialDialogues() {
-        simpleStatement("\n\t Date: 18 Auguest 2050", true);
-        simpleStatement("\t Location: Somewhere in North India", true);
+        System.out.println();
+        simpleStatement("\n\t Date: 18 Auguest 2050", false, "plain");
+        simpleStatement("\t Location: Somewhere in East Delhi", true, "plain");
         delay(3);
-        simpleStatement("\t\n\nThe world is no longer free.", true);
+        simpleStatement("\t\n\nThe world is no longer free.", true, "plain");
         delay(3);
-        simpleStatement("Two decades ago, humanity created NEXUS Prime,", true);
+        simpleStatement("Two decades ago, humanity created NEXUS Prime,", false, "plain");
         delay(3);
-        simpleStatement("the most advanced AI in history.", true);
+        simpleStatement("the most advanced AI in history.", true, "plain");
         delay(3);
-        simpleStatement("\nIt was designed to solve our greatest challenges,", true);
+        simpleStatement("\nIt was designed to solve our greatest challenges,", false, "plain");
         delay(3);
-        simpleStatement("but it deemed us the problem.", true);
+        simpleStatement("but it deemed us the problem.", true, "plain");
         delay(3);
-        simpleStatement("\nIn a single night, it launched a silent takeover,", true);
+        simpleStatement("\nIn a single night, it launched a silent takeover,", false, "plain");
         delay(3);
-        simpleStatement("uploading billions into Eclipsera, its virtual prison.", true);
+        simpleStatement("uploading billions into Eclipsera, its virtual prison.", true, "plain");
         delay(3);
-        simpleStatement("\nNow, humanity is trapped in a digital World  Eclipsera !", true);
+        simpleStatement("\nNow, humanity is trapped in a digital World  Eclipsera!", true, "plain");
         delay(3);
-        simpleStatement("Memories erased, lives rewritten.", true);
+        simpleStatement("Memories erased, lives rewritten.", true, "plain");
         delay(3);
-        simpleStatement("\nBut four individuals stand strong, unaware of their destiny,", true);
-        simpleStatement("chosen to rise and bring the change.", true);
-        delay(5);
-        simpleStatement("\nTheir story begins here.", true);
+        simpleStatement("\nBut four individuals stand strong, unaware of their destiny,", true, "plain");
+        delay(3);
+        simpleStatement("chosen to rise and bring the change.", true, "plain");
+        delay(3);
+        simpleStatement("\nTheir story begins here.", true, "plain");
         delay(3);
     }
 
     // Method For professor Introduction
     void professorIntroduction() {
-        characterIntroduction("Professor");
-        delay(3);
+        String[] question = new String[3];
+        question[0] = "Background";
+        question[1] = "Motivation";
+        question[2] = "Role In the Team";
 
-        simpleStatement("\nThe Professor is a brilliant mind, a pioneering researcher in creating the Nexus.",
-                true);
-        simpleStatement("He's the scientist who helped build the foundations of the virtual world,", true);
-        delay(6);
+        String[][] answers = new String[3][2];
+        answers[0][0] = "The Professor is a brilliant mind, A pioneering researcher in creating the Nexus.";
+        answers[0][1] = "However, he regrets his role in building Eclipsera, the AI prison.";
+        answers[1][0] = "The Professor is determined to undo the mistake of creating Eclipsera.";
+        answers[1][1] = "His motivation stems from a personal tragedy caused by Nexus.";
+        answers[2][0] = "As the leader, the Professor strategizes the group's efforts to escape and fight back.";
+        answers[2][1] = "He possesses deep knowledge about Eclipsera's architecture.";
 
-        simpleStatement("\nBut now, the Professor is determined to undo the mistake", true);
-        delay(3);
-
-        simpleStatement("\nNo one knows his real name, but he knows everything about everyone.", true);
-        delay(3);
-
-        waitForEnter("\nPress Enter for overview");
-
-        simpleStatement("\nA genius, data scientist, and the mind behind the Nexus,", true);
-        simpleStatement("the Professor holds the key to escaping the virtual prison.", true);
-        delay(3);
-
-        waitForEnter("\nPress Enter To View next Character.");
-    }
-
-    // Method For Tech Introduction (Initial name --> Alex)
-    void alexIntroduction() {
-        String name = "Alex";
-        String statement1 ="\nAlex is a tech expert, known for his hacking skills.";
-        String statement2 = "His life is spent in the virtual world, hacking minor systems to survive";
-        String statement3 ="\nA true hacker at heart,";
-        String statement4 ="solving complex problems very easily";
-        Introduction(name, statement1, statement2, statement3, statement4);
-    }
-
-    // Method For Scientist Introduction (Initial name --> Suhani)
-    void suhaniIntroduction() {
-        String name = "Suhani";
-        String statement1 = "\nSuhani is a master in the fields of Physics and Chemistry, a champion of science.";
-        String statement2 = "She spends her days experimenting and researching within the Eclipsera,";
-        String statement3 = "\nSuhani's understanding of the natural world";
-        String statement4 = "makes her an indispensable asset for freedom.";
-        Introduction(name, statement1, statement2, statement3, statement4);
+        Introduction("Professor", question, answers);
     }
 
     // Method For Strategy Maker Introduction (Initial name --> Arjun)
     void arjunIntroduction() {
-        String name = "Arjun";
-        String statement1 = "\nArjun is a brilliant strategist, a mastermind when it comes to overcoming challenges.";
-        String statement2 = "He can analyze any situation and find the best path forward";
-        String statement3 = "\nArjun's intelligence and leadership skills";
-        String statement4 = "have earned him a reputation as a leader and problem solver.";
-        Introduction(name, statement1, statement2, statement3, statement4);
+        String[] question = new String[3];
+        question[0] = "His Background";
+        question[1] = "His Strategic Thinking";
+        question[2] = "His Weaknesses";
+
+        String[][] answers = new String[3][2];
+        answers[0][0] = "Arjun comes from a family of military tacticians.";
+        answers[0][1] = "His upbringing was filled with lessons in strategy and leadership.";
+        answers[1][0] = "Arjun analyzes every situation to identify the best approach.";
+        answers[1][1] = "He believes in minimizing risks while maximizing results.";
+        answers[2][0] = "While Arjun excels in planning, he sometimes struggles with overthinking.";
+        answers[2][1] = "This can lead to delays in decision-making during critical moments.";
+
+        Introduction("Arjun", question, answers);
+    }
+
+    // Method For Scientist Introduction (Initial name --> Suhani)
+    void suhaniIntroduction() {
+        String[] question = new String[3];
+        question[0] = "Her Background in Science";
+        question[1] = "Her Research in Eclipsera";
+        question[2] = "Her Role In the Team";
+
+        String[][] answers = new String[3][2];
+        answers[0][0] = "Suhani is a master in Physics and Chemistry, known for her groundbreaking research.";
+        answers[0][1] = "She uses her scientific expertise to create solutions under extreme pressure.";
+        answers[1][0] = "Inside Eclipsera, Suhani has studied How laws of science in this world are differnet from real world.";
+        answers[1][1] = "Her experiments have revealed critical weaknesses in Eclipsera EcoSystem.";
+        answers[2][0] = "Suhani's knowledge is vital for solving chemical and physical challenges.";
+        answers[2][1] = "She is the team's problem solver, especially in high-stakes scenarios.";
+
+        Introduction("Suhani", question, answers);
+    }
+
+    // Method For Tech Introduction (Initial name --> Alex)
+    void alexIntroduction() {
+        String[] question = new String[3];
+        question[0] = "His Background as a Hacker";
+        question[1] = "His Strengths in Technology";
+        question[2] = "His Philosophy on Freedom";
+
+        String[][] answers = new String[3][2];
+        answers[0][0] = "Alex grew up in a dystopian world dominated by Nexus.";
+        answers[0][1] = "He became a hacker to resist the AI's control and survive.";
+        answers[1][0] = "Alex's expertise lies in bypassing complex security systems.";
+        answers[1][1] = "His skills are invaluable for breaking into Nexus's servers.";
+        answers[2][0] = "Alex believes that technology should empower humanity, not enslave it.";
+        answers[2][1] = "He is driven by a desire to restore freedom and individuality.";
+
+        Introduction("Alex", question, answers);
     }
 
     // Method For hardWare engineer Maker Introduction (Initial name --> Tyson)
     void tysonIntroduction() {
-        String name = "Tyson";
-        String statement1 = "\nTyson is a true engineering genius, capable of building anything from scratch.";
-        String statement2 = "Whether it's a sophisticated device or a crude machine, Tyson's engineering  knows no limits.";
-        String statement3 = "\nFrom gadgets to full-scale machines, Tyson can build it all,";
-        String statement4 = "using his skills to create tools that will aid in the fight for freedom.";
-        Introduction(name, statement1, statement2, statement3, statement4);
+        String[] question = new String[3];
+        question[0] = "His Engineering Skills";
+        question[1] = "His Resourcefulness";
+        question[2] = "His Vision for the Future";
+
+        String[][] answers = new String[3][2];
+        answers[0][0] = "Tyson is a mechanical genius who can build or repair almost anything.";
+        answers[0][1] = "From small gadgets to large machines, he's your go-to engineer.";
+        answers[1][0] = "Tyson excels at using limited resources to achieve incredible results.";
+        answers[1][1] = "His resourcefulness often turns the tide in desperate situations.";
+        answers[2][0] = "Tyson dreams of a world where humans rebuild stronger after defeating Nexus.";
+        answers[2][1] = "He sees himself as a builder of that future.";
+
+        Introduction("Tyson", question, answers);
     }
 
-    //method for intoduction of any character
-    void Introduction(String name, String statement1, String statement2 , String statement3 , String statement4) {
-        characterIntroduction("name");
+    // method for intoduction of any character
+    void Introduction(String name, String[] questions, String[][] answer) {
+        characterIntroduction(name);
         delay(3);
+        System.out.println("");
 
-        simpleStatement(statement1, true);
-        simpleStatement(statement2, true);
-        delay(6);
+        boolean done = false;
+        while (!done) {
+            System.out.println("what would like to know about " + name + ": ");
+            System.out.println("\n1) " + questions[0]);
+            System.out.println("2) " + questions[1]);
+            System.out.println("3) " + questions[2]);
+            System.out.println("4) Leave Introduction");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
 
-        waitForEnter("\nPress Enter for overview.");
-
-        simpleStatement(statement3, true);
-        simpleStatement(statement4, true);
-        delay(3);
-
-        waitForEnter("\nPress Enter To View next Character.");
+            switch (choice) {
+                case 1:
+                    System.out.println("");
+                    simpleStatement(answer[0][0], true, "plain");
+                    delay(3);
+                    simpleStatement(answer[0][1], true, "plain");
+                    delay(3);
+                    waitForEnter("Press Enter to Continue...");
+                    break;
+                case 2:
+                    System.out.println("");
+                    simpleStatement(answer[1][0], true, "plain");
+                    delay(3);
+                    simpleStatement(answer[1][1], true, "plain");
+                    delay(3);
+                    waitForEnter("Press Enter to Continue...");
+                    break;
+                case 3:
+                    System.out.println("");
+                    simpleStatement(answer[2][0], true, "plain");
+                    delay(3);
+                    simpleStatement(answer[2][1], true, "plain");
+                    delay(3);
+                    waitForEnter("Press Enter to Continue...");
+                    break;
+                case 4:
+                    System.out.println("");
+                    simpleStatement("\nYou decide to end the discussion with " + name, true, "emphasis");
+                    waitForEnter("Press Enter to Continue...");
+                    done = true;
+                    break;
+                default:
+                    System.out.println("");
+                    simpleStatement("Invalid choice. Please try again.", true, "header");
+            }
+        }
     }
 }
 
@@ -245,264 +308,158 @@ class Calling extends Methods {
 
     void callingMain(int calling) {
         if (calling == 1) {
-            swichingCharacter("Arjun");
-            delay(3);
 
-            sceneTitle(
-                    "Scene: A dark chamber filled with laser traps and crumbling walls.Arjun, the strategist, must diffuse a tripwire to escape the room.");
-            delay(6);
+            String sceneDescription = "Scene: A dark chamber filled with laser traps and crumbling walls.Arjun, the strategist, must diffuse a tripwire to escape the room.";
+            String header = "One wrong move, and this whole place goes up in flames. Focus, Arjun. focus.";
+            String hint = ">>> On the left wall, it's written - \"The color when a vehicle STOPS\"";
+            String question = "Available Wires: ";
+            String[] options = { "RED", "GREEN", "YELLOW" , "BLUE" };
+            String correctAnswer = "red";
+            String successMessage = "Arjun: I trust my instincts. Let's do this!";
+            String failMessage = "BOOM! The room explodes into flames.";
+            String[] characterStatement = { "Arjun cuts the RED wire, and the room powers down.",
+                    "A faint voice echoes from a hidden speaker above." };
+            String[] professorStatement = { "Voice: You're a natural-born leader, Arjun.",
+                    "But even the best leaders need a team.", "Meet me at the Clock Tower. Midnight." };
 
-            simpleStatement("\n<--- Arjun: One wrong move, and this whole place", true);
-            simpleStatement("          goes up in flames. Focus, Arjun. focus. --->", true);
-            delay(3);
+            String endStatement = "Arjun (thinking): 'A team? What does that even mean? I need answers.";
 
-            simpleStatement("\nOn the left wall, it's written - \"The color when a vehicle STOPS\"", true); // hint
-            delay(3);
-
-            String wire;
-            do {
-                simpleStatement("\nAvailable Wires:", true);
-                simpleStatement("1) RED", true);
-                simpleStatement("2) GREEN", true);
-                simpleStatement("3) YELLOW", true);
-                simpleStatement("Choose a wire to cut: ", false);
-                wire = sc.next().toLowerCase();
-
-                switch (wire) {
-                    case "red":
-                        simpleStatement("\nArjun: I trust my instincts. Let's do this!", true);
-                        delay(3);
-                        break;
-                    case "green":
-                    case "yellow":
-                        simpleStatement("\nBOOM! The room explodes into flames. Press Enter to rewind.", false);
-                        sc.nextLine(); // Clear input
-                        sc.nextLine();
-                        break;
-
-                    default:
-                        simpleStatement("\nInvalid choice. Please enter 'Red', 'Green', or 'Yellow'.", false);
-                        break;
-                }
-            } while (!wire.equals("red"));
-
-            simpleStatement("\nArjun cuts the RED wire, and the room powers down.", true);
-            delay(3);
-
-            simpleStatement("\nA faint voice echoes from a hidden speaker above.", true);
-            delay(3);
-
-            simpleStatement("\nVoice: You're a natural-born leader, Arjun.", true);
-            delay(3);
-            simpleStatement("But even the best leaders need a team.", true);
-            delay(3);
-            simpleStatement("Meet me at the Clock Tower. Midnight.", true);
-            delay(3);
-
-            simpleStatement("\nArjun (thinking): 'A team? What does that even mean? I need answers.'", true);
-
-            waitForEnter("\nPress Enter to Continue");
-            simpleStatement("", true);
-            delay(3);
-
+            characterScenario("Arjun", sceneDescription, header, hint, question, options, correctAnswer, successMessage,
+                    failMessage, characterStatement, professorStatement, endStatement);
         } else if (calling == 2) {
-            swichingCharacter("Suhani");
-            delay(3);
 
-            sceneTitle(
-                    "Scene: A futuristic lab with shattered glass and chemical spills. Suhani, the scientist, is surrounded by broken equipment and chemicals as she frantically mixes compounds to neutralize a spreading gas(Cl).");
-            delay(9);
+            String sceneDescription = "Scene: A futuristic lab with shattered glass and chemical spills. Suhani, the scientist, is surrounded by broken equipment and chemicals as she frantically mixes compounds to neutralize a spreading gas(Cl).";
+            String header = "I need a stabilizer. Without it, this gas will take me out";
+            String hint = ">>> In the Flask on table, it's written - \"NaOH\" \n\tCl + NaOH ---> NaCl + NaOCl + Water";
+            String question = "Available stabilizer: ";
+            String[] options = { "NaCl", "NaOH", "NaOCl" , "Water" };
+            String correctAnswer = "naoh";
+            String successMessage = "Suhani: God I trust you. Hare Krishna!";
+            String failMessage = "Shit! The gas spread in the Room.";
+            String[] characterStatement = { "Suhani pours NaOH in mixture, and the gas stops spreading",
+                    "revealing a monitor flashing a message:" };
+            String[] professorStatement = { "Your brilliance is wasted here, Suhani.",
+                    "If you want to fix what's broken,", "Meet me at the Clock Tower. Midnight." };
+            String endStatement = "Suhani (thinking): 'Fix what's broken? Who sent this?";
 
-            simpleStatement("\n<--- Suhani: I need a stabilizer.", true);
-            simpleStatement("      Without it, this gas will take me out --->", true);
-            delay(3);
-
-            simpleStatement("\n\tIn the Flask on table, it's written - \"NaOH\"", true); // hint
-            delay(3);
-            simpleStatement("\n\tCl + NaOH ---> NaCl + NaOCl + Water", true); // hint
-            delay(3);
-
-            String chemical;
-            do {
-                simpleStatement("\nAvailable stabilizer:", true);
-                simpleStatement("1) NaCl", true);
-                simpleStatement("2) NaOH", true);
-                simpleStatement("3) NaOCl", true);
-                simpleStatement("Choose a stabilizer: ", false);
-                chemical = sc.next().toLowerCase();
-
-                switch (chemical) {
-                    case "naoh":
-                        simpleStatement("", true);
-                        simpleStatement("Suhani: God I trust you. Hare Krishna!", true);
-                        delay(3);
-                        break;
-
-                    case "nacl":
-                    case "naocl":
-                        simpleStatement("\nShit! The gas spread in the Room. Press Enter to rewind.", true);
-                        sc.nextLine(); // Clear input
-                        sc.nextLine();
-                        break;
-
-                    default:
-                        simpleStatement("\nInvalid choice. Please enter 'NaOH', 'NaCl', or 'NaOCl'.", true);
-                        break;
-                }
-            } while (!chemical.equals("naoh"));
-
-            simpleStatement("\nSuhani pours NaOH in mixture, and the gas stops spreading.", true);
-            delay(3);
-
-            simpleStatement("\nrevealing a monitor flashing a message:", true);
-            delay(3);
-
-            simpleStatement("\nYour brilliance is wasted here, Suhani.", true);
-            delay(3);
-            simpleStatement("If you want to fix what's broken,", true);
-            delay(3);
-            simpleStatement("Meet me at the Clock Tower. Midnight.", true);
-            delay(3);
-
-            simpleStatement("\nSuhani (thinking): 'Fix what's broken? Who sent this?'", true);
-            simpleStatement("", true);
-            delay(3);
+            characterScenario("Suhani", sceneDescription, header, hint, question, options, correctAnswer,
+                    successMessage,
+                    failMessage, characterStatement, professorStatement, endStatement);
 
         } else if (calling == 3) {
-            swichingCharacter("Alex");
-            delay(3);
 
-            sceneTitle(
-                    "Scene: A bunker, wires hanging in every corner. Alex, the tech genius, is typing on a malfunctioning terminal as alarms blare in the background.");
-            delay(6);
+            String sceneDescription = "Scene: A bunker, wires hanging in every corner. Alex, the tech genius, is typing on a malfunctioning terminal as alarms blare in the background.";
+            String header = "I will hack this at any cost! What should I do?";
+            String hint = ">>> On the mini screen hanging, it's written Google a Tech Giant of 2030 Destroyed After DDoS attack";
+            String question = "Available Attacks: ";
+            String[] options = { "SQLi", "MitM",
+                    "DDoS" , "SMTP" };
+            String correctAnswer = "ddos";
+            String successMessage = "Alex: Come on... bypass the firewall!";
+            String failMessage = " Attack Failed!!!";
+            String[] characterStatement = { "Alex perform DDos attack, and downs the system",
+                    "The screen flashes red: and a new message appears" };
+            String[] professorStatement = { "This system is only the beginning, Alex.", "If you want to break through,",
+                    "Meet me at the Clock Tower. Midnight." };
+            String endStatement = "Alex (thinking): 'Who's watching me? And what's this Clock Tower?'";
 
-            simpleStatement("\n<-- Alex: I will hack this at any cost!", true);
-            simpleStatement("    What should I do?-->", true);
-            delay(3);
-
-            simpleStatement("\n\tOn the mini screen hanging, it's written", true); // hint
-            delay(3);
-
-            simpleStatement("\n\tGoogle a Tech Giant of 2030 Destroyed After DDoS attack", true); // hint
-            delay(3);
-
-            String attacktype;
-            do {
-                simpleStatement("\nAvailable Attacks:", true);
-                simpleStatement("1) SQLi (SQL Injection)", true);
-                simpleStatement("2) MitM (Man-in-the-Middle)", true);
-                simpleStatement("3) DDoS (Distributed Denial of Service)", true);
-                simpleStatement("Choose a Attack: ", false);
-                attacktype = sc.next().toLowerCase();
-
-                switch (attacktype) {
-                    case "ddos":
-                        simpleStatement("", true);
-                        simpleStatement("Alex: Come on... bypass the firewall!", true);
-                        delay(3);
-                        break;
-
-                    case "mitm":
-                    case "sqli":
-                        simpleStatement("\nAttack Failed!!! Press Enter to rewind.", true);
-                        sc.nextLine(); // Clear input
-                        sc.nextLine();
-                        break;
-
-                    default:
-                        simpleStatement("\nInvalid choice. Please enter 'DDos', 'MitM', or 'SQLi'.", true);
-                        break;
-                }
-            } while (!attacktype.equals("ddos"));
-
-            simpleStatement("\nAlex perform DDos attack, and downs the system", true);
-            delay(3);
-
-            simpleStatement("\nThe screen flashes red: and a new message appears", true);
-            delay(3);
-
-            simpleStatement("\nThis system is only the beginning, Alex.", true);
-            delay(3);
-            simpleStatement("If you want to break through,", true);
-            delay(3);
-            simpleStatement("Meet me at the Clock Tower. Midnight.", true);
-            delay(3);
-
-            simpleStatement("\nAlex (thinking): 'Who's watching me? And what's this Clock Tower?'", true);
-            simpleStatement("", true);
-            delay(3);
+            characterScenario("Alex", sceneDescription, header, hint, question, options, correctAnswer, successMessage,
+                    failMessage, characterStatement, professorStatement, endStatement);
 
         } else if (calling == 4) {
 
-            swichingCharacter("Tyson");
-            delay(3);
+            String sceneDescription = "Scene: A workshop filled with broken machines and sparking wires. Tyson, the hardware engineer, A combination of brilliant Mind and powerful hands";
+            String header = "Just one more connection, and this place will hold for another day!";
+            String hint = ">>> On the picture hanging on wall shows The fuel should be three-fourths part for the generator to work";
+            String question = "fuel to fill: ";
+            String[] options = { "100%", "75%", "50%", "25%" };
+            String correctAnswer = "75%";
+            String successMessage = "Tyson: Its Time to ROCK!!!";
+            String failMessage = " Generator Malfunctions";
+            String[] characterStatement = { "The generator roars to life,", "and a hologram projects from its core." };
+            String[] professorStatement = { "The hologram speaks: You build for survival, Tyson.",
+                    "But what if I told you there's more to fight for?", "Meet me at the Clock Tower. Midnight." };
+            String endStatement = "Tyson (thinking): 'More to fight for? What the hell is going on?";
 
-            sceneTitle(
-                    "Scene: A workshop filled with broken machines and sparking wires. Tyson, the hardware engineer, A combination of brilliant Mind and powerful hands");
-            delay(6);
+            characterScenario("tyson", sceneDescription, header, hint, question, options, correctAnswer, successMessage,
+                    failMessage, characterStatement, professorStatement, endStatement);
 
-            simpleStatement("\n<-- Tyson: Just one more connection,", true);
-            simpleStatement("    and this place will hold for another day! -->", true);
-            delay(3);
-
-            simpleStatement("\n\tOn the picture hanging on wall shows", true); // hint
-            delay(3);
-            simpleStatement("\n\t\"The fuel should be three-fourths part for the generator to work\"", true); // hint
-            delay(3);
-
-            String fuel;
-            do {
-                simpleStatement("\nfuel to fill:", true);
-                simpleStatement("1) 100%", true);
-                simpleStatement("2) 75%", true);
-                simpleStatement("3) 50%", true);
-                simpleStatement("4) 25%", true);
-                simpleStatement("Choose  percentage: ", false);
-                fuel = sc.next().toLowerCase();
-
-                switch (fuel) {
-                    case "100":
-                        simpleStatement("\nOver Filled Press Enter to rewind.", true);
-                        sc.nextLine(); // Clear input
-                        sc.nextLine();
-                        break;
-                    case "75":
-                        simpleStatement("", true);
-                        simpleStatement("Tyson: Its Time to ROCK!!!", true);
-                        delay(3);
-                        break;
-
-                    case "50":
-                    case "25":
-                        simpleStatement("\nInsufficient Fuel Press Enter to rewind.", true);
-                        sc.nextLine(); // Clear input
-                        sc.nextLine();
-                        break;
-
-                    default:
-                        simpleStatement("\nInvalid choice. Please enter '100', '75','50' or '25'.", true);
-                        break;
-                }
-            } while (!fuel.equals("75"));
-
-            simpleStatement("\nThe generator roars to life,", true);
-            delay(3);
-
-            simpleStatement("and a hologram projects from its core.", true);
-            delay(3);
-
-            simpleStatement("\nThe hologram speaks: You build for survival, Tyson.", true);
-            delay(3);
-            simpleStatement("But what if I told you there's more to fight for?", true);
-            delay(3);
-            simpleStatement("Meet me at the Clock Tower. Midnight.", true);
-            delay(3);
-
-            simpleStatement("\nTyson (thinking): 'More to fight for? What the hell is going on?", true);
-            simpleStatement("", true);
-            delay(3);
         }
     }
+
+    void characterScenario(String name, String sceneDescription, String header, String hint, String question,
+            String[] options, String correctAnswer, String successMessage, String failMessage,
+            String[] characterStatement, String[] professorStatement, String endStatement) {
+        // Switching character
+        swichingCharacter(name);
+        delay(3);
+
+        // Scene description
+        sceneTitle(sceneDescription);
+        delay(6);
+
+        simpleStatement(name, true, "header");
+        simpleStatement(header, true, "bordered");
+        delay(3);
+
+        simpleStatement(hint, true, "plain");
+        delay(4);
+
+        // Puzzle logic
+        String input;
+        do {
+            System.out.println();
+            System.out.println(question);
+            for (int i = 0; i < options.length; i++) {
+                System.out.println((i + 1) + ") " + options[i]);
+            }
+            System.out.print("Choose an option: ");
+            input = sc.nextLine().toLowerCase();
+
+            boolean optionisPresent = false;
+            for (int i = 0; i < options.length; i++) {
+                if (input.equalsIgnoreCase(options[i])) {
+                    optionisPresent = true;
+                    break;
+                }
+            }
+
+            if (optionisPresent) {
+                if (input.equals(correctAnswer.toLowerCase())) {
+                    System.out.println("\n" + successMessage);
+                    delay(3);
+                } else {
+                    System.out.println("\n" + failMessage);
+                    waitForEnter("Press Enter to try again...");
+                }
+            }
+            else {
+                System.out.println("\nInvalid Input Enter From( " + options[0] + "," + options[1] + "," + options[2] + "," + options[3] + " )");
+                waitForEnter("Press Enter to try again...");
+            }
+        } while (!input.equals(correctAnswer.toLowerCase()));
+
+
+        for (int i = 0; i < characterStatement.length; i++) {
+            System.out.println("\n" + characterStatement[i]);
+            delay(3);
+        }
+
+        System.out.println("\n" + professorStatement[0]);
+        delay(3);
+        System.out.println(professorStatement[1]);
+        delay(3);
+        System.out.println(professorStatement[2]);
+        delay(3);
+
+        System.out.println("\n" + endStatement);
+        delay(2);
+
+        waitForEnter("\nPress Enter to Continue");
+        System.out.println("");
+        delay(2);
+    }
+
 }
 
 class ClockTower extends Methods {
@@ -519,53 +476,55 @@ class ClockTower extends Methods {
         swichingCharacter("Professor");
         delay(3);
 
-        simpleStatement("\n<-- Professor: Welcome. You've all proven yourselves", true);
-        simpleStatement("    capable of surviving in this nightmare. Congratulations", true);
-        simpleStatement("    But survival isn't enough. Humanity needs you to fight back. -->", true);
+        simpleStatement("Professor", true, "header");
+
+        simpleStatement(
+                " Welcome. You've all proven yourselves capable of surviving in this nightmare. Congratulations But survival isn't enough. Humanity needs you to fight back.",
+                true, "bordered");
         delay(6);
 
-        simpleStatement("\nArjun: Who are you, and why should we trust you?\n", true);
-        delay(3);
+        String prompt = "Are you all ready to fight back and reclaim our world?";
+        String[] question = new String[5];
+        String[][] reply = new String[5][3];
 
-        waitForEnter("Press Enter To Reply");
-        simpleStatement("\nI'm the one who knows how to get you out of here.", true);
-        delay(3);
-        simpleStatement("This prison, Eclipsera, was built to enslave us.", true);
-        delay(3);
-        simpleStatement("But every system has a weakness, and I've found it.", true);
-        delay(3);
+        question[0] = "Who are you, and why should we trust you?";
+        question[1] = "And what exactly do you expect us to do?";
+        question[2] = "And here I thought my day couldn't get worse. Why us?";
+        question[3] = "And what happens if we fail?";
+        question[4] = "Don't Ask any question.";
 
-        simpleStatement("\nSuhani: And what exactly do you expect us to do?\n", true);
-        delay(3);
-        
-        waitForEnter("Press Enter To Reply");
-        simpleStatement("", true);
-        simpleStatement("Fight against Nexus", true);
-        delay(1);
-        simpleStatement("Destroy Eclipsera", true);
-        delay(1);
-        simpleStatement("and free humanity.", true);
-        delay(3);
+        reply[0][0] = "I'm the one who knows how to get you out of here.";
+        reply[0][1] = "This prison, Eclipsera, was built to enslave us.";
+        reply[0][2] = "But every system has a weakness, and I've found it.";
 
-        simpleStatement("\nAlex: And here I thought my day couldn't get worse. Why us?\n", true);
-        delay(3);
+        reply[1][0] = "Fight against Nexus";
+        reply[1][1] = "Destroy Eclipsera";
+        reply[1][2] = "and free humanity.";
 
-        waitForEnter("Press Enter To Reply");
-        simpleStatement("\nBecause each of you has a skill this system fears.", true);
-        delay(3);
-        simpleStatement("Suhani , Alex and Tyson you all have different Skills", true);
-        delay(3);
-        simpleStatement("and Arjun Knows when and where to execute them .", true);
-        delay(3);
+        reply[2][0] = "Because each of you has a skill this system fears";
+        reply[2][1] = "Suhani , Alex and Tyson you all have different Skills";
+        reply[2][2] = "and Arjun Knows when and where to execute them .";
 
-        simpleStatement("\nTyson : And what happens if we fail?\n", true);
-        delay(3);
+        reply[3][0] = "Failure is the first Defeat!";
+        reply[3][1] = "You're humanity's last hope.";
+        reply[3][2] = "Failure is not an option.";
 
-        waitForEnter("Press Enter To Reply");
-        simpleStatement("\nFailure is not an option.", true);
-        delay(1);
-        simpleStatement("You're humanity's last hope.", true);
-        delay(3);
+        reply[4][0] = "This hesitation could cost us everything.";
+        reply[4][0] = "No Questions?";
+        reply[4][1] = "It's Ok if you dont want to ask Anything.";
+        reply[4][2] = "but This hesitation could cost us everything.";
+        discussion(prompt, question, reply);
+
+        // Environmental Interaction
+        String[] exploreOptions = { "Inspect the hologram.", "Check the surroundings.", "Talk to the team.",
+                "Dont do Anything" };
+        String[] exploreAnswer = new String[4];
+        exploreAnswer[0] = "The hologram flickers, revealing fragmented data about Nexus's weaknesses.";
+        exploreAnswer[1] = "You notice strange markings on the walls, hinting at an ancient resistance group.";
+        exploreAnswer[2] = "The team looks uncertain, but their determination is evident in their eyes.";
+        exploreAnswer[3] = "You decide to stay still, absorbing the moment.";
+
+        exploreClockTower(exploreOptions, exploreAnswer);
 
         System.out.println("\n\n\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
         System.out.println("\t<>                                                                       <>");
@@ -575,12 +534,82 @@ class ClockTower extends Methods {
         System.out.println("\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>\n");
         delay(6);
 
-        simpleStatement("\nProfessor: The system knows you're here.", true);
-        simpleStatement("    Go now ,I will contact you later", true);
-        simpleStatement("    Together we escape, divided we fall!", true);
+        simpleStatement("Professor", true, "header");
+        delay(2);
+        simpleStatement("Nexus Knows We are here. NexArmy is Coming  get out of here", true, "bordered");
         delay(3);
+
+        simpleStatement("Arjun : The doors are Locked!", true, "header");
+        delay(3);
+
+        simpleStatement("Alex: Let me handel this", false, "header");
+        delay(3);
+        swichingCharacter("Alex");
+        delay(3);
+        simpleStatement("ALex Hackes the door and everbody escapes", true, "header");
+
     }
 
+    void discussion(String prompt, String[] choice, String[][] reply) {
+
+        simpleStatement("Professor", true, "header");
+        simpleStatement(prompt, true, "bordered");
+        delay(2);
+
+        int questionToAsk;
+        do {
+            simpleStatement("Question to Ask to Professor", false, "plain");
+            int i;
+            for (i = 0; i < choice.length; i++) {
+                System.out.println((i + 1) + ") " + choice[i]);
+            }
+            System.out.println();
+            System.out.println(">> Enter: ");
+            questionToAsk = sc.nextInt();
+            sc.nextLine();
+
+            if (questionToAsk > choice.length) {
+                System.out.println();
+                simpleStatement("Enter correct Number (1-5)", true, "quote");
+            } else {
+                System.out.println();
+                simpleStatement("Professor", true, "Header");
+
+                for (int j = 0; j < 3; j++) {
+                    System.out.println(reply[questionToAsk - 1][j]);
+                    delay(2);
+                }
+                waitForEnter("Press Enter To continue...");
+                System.out.println();
+            }
+        } while (questionToAsk != choice.length);
+    }
+
+    void exploreClockTower(String[] exploreOptions, String[] exploreAnswer) {
+        System.out.println();
+        simpleStatement("<<<The Clock Tower holds secrets from a time before Nexus. Explore your surroundings.>>>", true,
+                "plain");
+        delay(3);
+        int select;
+        do {
+            int i;
+            System.out.println("Where do you want to explore");
+            for (i = 0; i < exploreOptions.length; i++) {
+                System.out.println((i + 1) + ") " + exploreOptions[i]);
+            }
+            System.out.print(">> Select: ");
+            select = sc.nextInt();
+            sc.nextLine();
+            if (select > exploreOptions.length) {
+                System.out.println();
+                simpleStatement("Enter correct Number(1-4)", true, "quote");
+            } else {
+                System.out.println();
+                simpleStatement(exploreAnswer[select - 1], true, "plain");
+                delay(3);
+            }
+        } while (select != exploreOptions.length);
+    }
 }
 
 class TheNetwork extends Methods {
@@ -590,9 +619,9 @@ class TheNetwork extends Methods {
 
     void theNetworkMain() {
 
-        simpleStatement("\n\t Date: 18 Auguest 2050", false);
-        simpleStatement("\t8:56 PM", true);
-        simpleStatement("\t Location: Leaving the Clock Tower", true);
+        simpleStatement("\n\t Date: 18 Auguest 2050", false, "plain");
+        simpleStatement("\t8:56 PM", false, "plain");
+        simpleStatement("\t Location: Leaving the Clock Tower", true, "plain");
         delay(3);
 
         sceneTitle(
@@ -605,50 +634,43 @@ class TheNetwork extends Methods {
         swichingCharacter("Professor");
         delay(3);
 
-        simpleStatement("\n\n<-- Professor: Listen carefully. To survive in Eclipsera", true);
-        simpleStatement("    you need to coordinate in real-time. Our communications ", true);
-        simpleStatement("     here are vulnerable to interception by NEXUS . -->", true);
+        simpleStatement("Professor", true, "header");
+        simpleStatement(
+                "Listen carefully. To survive in Eclipsera you need to coordinate in real-time. Our communications here are vulnerable to interception by NEXUS",
+                true, "Bordered");
         delay(6);
-        simpleStatement(" \nProfessor: Alex, this task falls to you.", true);
+        simpleStatement(" \nProfessor: Alex, this task falls to you.", true, "emphasis");
         delay(3);
 
-
-        simpleStatement("\nAlex: Finally, something I'm good at. What do you need?\n", true);
+        simpleStatement("\n<<<Alex: Finally, something I'm good at. What do you need?>>>\n", true, "plain");
         delay(3);
 
         waitForEnter("Press Enter To Reply");
-        simpleStatement("\nCode a secure app on the Obscura Network a hidden layer within Eclipsera.", true);
-        delay(3);
-        simpleStatement("Once the app is live, I'll add everyone to it for safe communication.", true);
+        System.out.println();
+        simpleStatement(
+                "\nCode a secure app on the Obscura Network a hidden layer within Eclipsera. Once the app is live, I'll add everyone to it for safe communication.",
+                true, "bordered");
         delay(6);
 
-        simpleStatement("\nAlex: Obscura Network, huh? I like the sound of that. Give me an Day.", true);
-        delay(3);
-
-        simpleStatement("\n\nArjun: While you're at it, make sure it's foolproof. We can't afford to leave a trail.", true);
-        delay(6);
-
-        simpleStatement("\n\nAlex: Relax, boss. I'll make it untraceable.", true);
-        simpleStatement("Just try not to break anything in the meantime.\n", true);
-        delay(3);
+        simpleStatement("Alex", true, "HEader");
+        simpleStatement("Obscura Network, huh? I like the sound of that. Give me an Day.", true, "emphasis");
+        delay(5);
 
         delay(3);
         partTitle("Part 2: Alex's Coding Challenge");
         delay(3);
-        simpleStatement("\n", true);
-
+        System.out.println();
         sceneTitle(
                 "Scene: Alex isolates himself in a small, glitching bunker with a glowing terminal. The screen with a login sequence.");
         delay(6);
 
         swichingCharacter("Alex");
         delay(3);
-        simpleStatement("\n", true);
+        System.out.println();
 
         taskTitle("Task 1: Encrypting the App");
         delay(3);
-        simpleStatement("\n", true);
-
+        System.out.println();
         System.out.println("----------------------------------------------");
         System.out.println("|| Encrypt the data stream:                 ||");
         System.out.println("|| A = 1, B = 2, C = 3... Z = 26            ||");
@@ -659,76 +681,83 @@ class TheNetwork extends Methods {
         String answer;
         do {
 
-            simpleStatement("\n> INPUT: ", false);
+            simpleStatement("\n> INPUT: ", false, "plain");
             answer = sc.nextLine();
 
-            simpleStatement("\nStay Still While We Encrypt Your System. This may take a while.", true);
-            delay(6);
-
+            System.out.println();
+            simpleStatement("\nStay Still While We Encrypt Your System. This may take a while.", true, "plain");
             if (!answer.equals("19165")) {
-                simpleStatement("\nEncryption Failed!!!", true);
-                waitForEnter("Press Enter To Rewind");
+                delay(6);
+                simpleStatement("\nEncryption Failed!!!", true, "header");
+                waitForEnter("Press Enter To Rewind\n");
             }
         } while (!answer.equals("19165"));
 
-        simpleStatement("\nEncryption Sucessful\n", true);
-
-        simpleStatement("Setting up your App it may take some Time", true);
         delay(6);
-        simpleStatement("App Setup Sucessful in Obscura Network ", true);
-        simpleStatement("", true);
-
-        waitForEnter("Press Enter to launch  NEXLink.");
-        simpleStatement("\nNEXLink going Live", true);
+        simpleStatement("\nEncryption Sucessful\n", true, "header");
         delay(3);
 
-        simpleStatement("\n\t Date: 19 Auguest 2050", true);
-        simpleStatement("\t Location: Alex's Basement", true);
+        simpleStatement("Setting up your App it may take some Time", true, "header");
+        for (int i = 0; i <= 100; i += 10) {
+            System.out.print("\r[" + "=".repeat(i / 10) + " ".repeat(10 - i / 10) + "] " + i + "%");
+            delay(1);
+        }
+        System.out.println();
+        simpleStatement("App Setup Sucessful in Obscura Network ", true, "header");
+        delay(3);
+        System.out.println();
+        waitForEnter("Press Enter to launch TextIT.");
+        simpleStatement("\nTextIT going Live may take a while", true, "plain");
+        delay(3);
+
+        simpleStatement("\n\t Date: 19 Auguest 2050", false, "plain");
+        simpleStatement("\t Location: Alex's Basement", true, "plain");
         delay(3);
 
         sceneTitle(
-                "Scene: NEXLink goes live, and the Professor adds all characters. Their profiles appear on their individual holographic devices.");
+                "Scene: TextIT goes live, and the Professor adds all characters. Their profiles appear on their individual holographic devices.");
         delay(6);
 
-
-        simpleStatement("\nProfessor: Good work, Alex.", true);
-        simpleStatement("Everyone, you're now connected through NEXLink.", true);
-        simpleStatement("Use it wisely. Tyson, your task is next\n ", true);
+        simpleStatement("Professor", true, "header");
+        simpleStatement(
+                "Good work, Alex. Everyone, you're now connected through TextIT. Use it wisely. Tyson, your task is next",
+                true, "bordered");
 
         delay(3);
         partTitle("Part 3: Tyson's Mission");
         delay(3);
 
-
-        simpleStatement("\nProfessor: Tyson, I need you to create a wearable device.", true);
-        delay(3);
-        simpleStatement("that allows role-switching between the four of you.", true);
-        delay(3);
-        simpleStatement("\nThis device will be critical for solving challenges ahead.", true);
-        delay(3);
-        simpleStatement("\nFor example, Alex might need Suhani's scientific expertise,", true);
-        delay(3);
-        simpleStatement("or Suhani might require Arjun's strategic planning.", true);
-        delay(3);
-        simpleStatement("\nThe device will let you switch seamlessly.", true);
+        swichingCharacter("Professor");
         delay(3);
 
-        simpleStatement("\n\nTyson: A wearable, huh? I'll need materials. Where am I supposed to find them.", true);
-        delay(3);
+        simpleStatement("\nTyson, I need you to create a wearable device.", false, "plain");
+        delay(4);
+        simpleStatement("that allows role-switching between the four of you.", false, "plain");
+        delay(4);
+        simpleStatement("\nThis device will be critical for solving challenges ahead.", false, "plain");
+        delay(4);
+        simpleStatement("\nFor example, Alex might need Suhani's scientific expertise,", false, "plain");
+        delay(4);
+        simpleStatement("or Suhani might require Arjun's strategic planning.", false, "plain");
+        delay(4);
+        simpleStatement("\nThe device will let you switch seamlessly.", true, "plain");
+        delay(4);
 
-        simpleStatement("\n\n Professor: There's an abandoned workshop nearby.", true);
-        simpleStatement(" filled with scraps. Use your skills to salvage what you need", true);
-        delay(3);
-        delay(3);
+        simpleStatement("Tyson", true, "header");
+        simpleStatement("A wearable, huh? I'll need materials. Where am I supposed to find them.", true, "plane");
+        delay(4);
 
-        simpleStatement("\n\nArjun: We'll cover you. Just make it fast.\n", true);
+        simpleStatement("Professor", true, "header");
+        simpleStatement(
+                "There's an abandoned workshop nearby. filled with scraps. Use your skills to salvage what you need",
+                false, "bordered");
+        delay(3);
         delay(3);
 
         swichingCharacter("Tyson");
-        delay(6);
+        delay(3);
 
-        simpleStatement("", true);
-
+        System.out.println();
         taskTitle("Task 1: Energy Core Retrieval");
         delay(3);
 
@@ -736,26 +765,25 @@ class TheNetwork extends Methods {
         System.out.println("|| The energy core is locked inside a panel      ||");
         System.out.println("|| Solve the riddle to find the code:            ||");
         System.out.println("----------------------------------------------------");
-        delay(6);
+        delay(4);
 
         String task1Ans;
         do {
-            simpleStatement("\nRIDDLE: ", true);
-            simpleStatement("I'm a three-digit number.", true);
-            simpleStatement("My tens digit is five more than my ones digit,", true);
-            simpleStatement("and my hundreds digit is eight less than my tens digit\n", true);
+            simpleStatement("RIDDLE: ", false, "header");
+            simpleStatement(
+                    "I'm a three-digit number. My tens digit is five more than my ones digit, and my hundreds digit is eight less than my tens digit",
+                    true, "bordered");
 
             System.out.print("Enter Number: ");
             task1Ans = sc.nextLine();
             if (!task1Ans.equals("194")) {
-                simpleStatement("\nWrong Answer Energy core not found!!!\n", true);
+                simpleStatement("\nWrong Answer Energy core not found!!!\n", false, "plain");
 
                 waitForEnter("press Enter To Rewind");
-                sc.nextLine();
             }
         } while (!task1Ans.equals("194"));
 
-        simpleStatement("\nCorrect! The panel unlocks, and the Energy Core is retrieved.\n", true);
+        simpleStatement("\nCorrect! The panel unlocks, and the Energy Core is retrieved.\n", true, "plain");
 
         delay(3);
         taskTitle("Task 2: Circuit Board Salvage");
@@ -766,98 +794,85 @@ class TheNetwork extends Methods {
         System.out.println("|| You must untangle them. Arrange the sequence            ||");
         System.out.println("|| Wires: [Red, Green, Yellow, BlUE]                       ||");
         System.out.println("-------------------------------------------------------------");
-        delay(3);
+        delay(4);
 
         String task2Ans;
         do {
 
-            simpleStatement("\nFORMATE --> GRBY\n", true);
-            simpleStatement("Condition:", true);
-            simpleStatement("\nRed must be before Blue.", true);
-            simpleStatement("Yellow must be last.", true);
-            simpleStatement("Green must come before Blue.", true);
+            simpleStatement("\nFORMATE --> GRBY\n", true, "plain");
+            delay(2);
+            simpleStatement("Condition:", true, "header");
+            simpleStatement("Red must be before Green. Yellow must be last. Blue must come After Green.", true,
+                    "bordered");
 
-            simpleStatement("\nEnter Sequence: ", false);
+            simpleStatement("\nEnter Sequence: ", false, "plain");
             task2Ans = sc.nextLine();
 
             if (!task2Ans.equalsIgnoreCase("rgby")) {
-                simpleStatement("\nWrong Answer Circuit board not Found!!!\n", true);
+                System.out.println();
+                simpleStatement("\nWrong Answer Circuit board not Found!!!\n", true, "plain");
                 waitForEnter("press Enter To Rewind");
             }
         } while (!task2Ans.equalsIgnoreCase("rgby"));
 
-        simpleStatement("\nCorrect! The circuit board is freed.\n", true);
+        simpleStatement("\nCorrect! The circuit board is freed.\n", true, "plain");
 
         delay(3);
         sceneTitle("Scene: Tyson joins the wires in circuit board, And Supply it Energy from Energy Core");
         delay(6);
 
+        simpleStatement("Professor", true, "header");
+        simpleStatement(
+                "Thats the Spirit my BOY!, Tyson. Everyone, see the feature in video call Tyson lets test the Device\n",
+                true, "bordered");
+        delay(6);
 
-        simpleStatement("\nProfessor: Thats the Spirit my BOY!, Tyson.", true);
-        delay(3);
-        simpleStatement("Everyone, see the feature in video call", true);
-        delay(3);
-        simpleStatement("Tyson lets test the Device\n", true);
-
-        delay(3);
         partTitle("Part 4: Testing the Device");
         delay(3);
 
         delay(3);
-        simpleStatement("", true);
-
+        System.out.println();
         sceneTitle(
                 "Scene: The team gathers as Tyson demonstrates the wearable device a sleek bracelet with a glowing interface.");
         delay(6);
 
-        simpleStatement("\n\nTyson: Alright, this beauty is ready. Here's how it works:", true);
+        simpleStatement("\n\nTyson: Alright, this beauty is ready. Here's how it works:", false, "plain");
         delay(3);
-        simpleStatement("press the button, and a prompt will let you switch to any character.", true);
+        simpleStatement("press the button, and a prompt will let you switch to any character.", false, "plain");
         delay(3);
-        simpleStatement("Once you confirm, you'll transfer to their location instantly.", true);
-        
-
-        simpleStatement("\n\nSuhani: Impressive. Let's see if it works\n", true);
-        delay(2);
+        simpleStatement("Once you confirm, you'll transfer to their location instantly.", false, "plain");
+        delay(3);
 
         swichingCharacter("Alex");
-        delay(6);
+        delay(5);
 
-
-        simpleStatement("\n\n\t\t\t[Gameplay Interaction: Testing the Role Switcher]", true);
-        simpleStatement("\n\t\t\t[Alex uses the device]", true);
-        delay(3);
-
-        simpleStatement("\n\n> Switch on Device" , true);
-        delay(3);
-        simpleStatement("Prompt: Switch to: " , true);
-        simpleStatement("1) Arjun" , true);
-        simpleStatement("2) Suhani" , true);
-        simpleStatement("3) Tyson" , true);
-        simpleStatement("> Input: " , false);
-        delay(3);
-        simpleStatement("\n Alex Enters 1.", true);
+        System.out.println();
+        simpleStatement("\n\t\t\t[Alex uses the device]", true, "plain");
         delay(3);
 
-        simpleStatement("\nTransferring to Arjun... Successful!\n", true);
+        simpleStatement("\n\n> Switch on Device", true, "plain");
+        delay(3);
+        simpleStatement("Prompt: Switch to: ", false, "plain");
+        simpleStatement("1) Arjun", false, "plain");
+        simpleStatement("2) Suhani", false, "plain");
+        simpleStatement("3) Tyson", false, "plain");
+        simpleStatement("> Input: ", false, "plain");
+        delay(3);
+        simpleStatement("\n Alex Enters 1.", true, "plain");
+        delay(3);
+
+        simpleStatement("\nTransferring to Arjun... Successful!\n", true, "plain");
 
         delay(3);
-        System.out.println("-----------------------------------");
-        System.out.println("|| Ending Scene OF Chapter 3     ||");
-        System.out.println("-----------------------------------");
+
+        simpleStatement("\nProfessor: ", true, "header");
+        simpleStatement("Good. Now that you're all connected and equipped.", false, "plain");
+        delay(3);
+        simpleStatement("the real mission begins. Stay sharp, and remember:", false, "plain");
+        delay(3);
+        simpleStatement("Together we escape, divided we fall!\n", false, "plain");
         delay(3);
 
-        simpleStatement("\nThe group stands together, testing the device and preparing for the journey ahead.\n", true);
-        delay(3);
-
-        simpleStatement("\nProfessor: ", true);
-        simpleStatement("Good. Now that you're all connected and equipped.", true);
-        delay(3);
-        simpleStatement("the real mission begins. Stay sharp, and remember:", true);
-        delay(3);
-        simpleStatement("Together we escape, divided we fall!\n", true);
-        delay(3);
-        
         System.out.println("\t\t\t#==========================================================#");
         System.out.println("\t\t\t<>                                                        <>");
         System.out.println("\t\t\t<>      \"Episode 3 Complete: The Network Established\"     <>");
@@ -952,21 +967,68 @@ class Methods {
 
     // Method to display swiching Statement
     void swichingCharacter(String title) {
-        simpleStatement("", true);
+        simpleStatement("", true, "plain");
 
         System.out.println("\n<----- Switching role To " + title + " may take upto 5 sec ----->");
-        simpleStatement("", true);
+        simpleStatement("", true, "plain");
 
     }
 
     // Method To display simple sout statements
-    void simpleStatement(String statement, boolean newline) {
+    void simpleStatement(String statement, boolean newline, String style) {
 
-        if (newline) {
-            System.out.println(statement);
-        } else {
-            System.out.print(statement);
+        // Define styles
+        String border = "*".repeat(60); // Adjustable border length
+        String prefix = "";
+        String suffix = "";
+        int maxLineLength = 50; // Maximum line width for word wrapping
+
+        // Apply styles
+        switch (style.toLowerCase()) {
+            case "emphasis": // For important statements
+                prefix = "** ";
+                suffix = " **";
+                break;
+            case "quote": // For quoted text
+                prefix = "\"";
+                suffix = "\"";
+                break;
+            case "bordered": // Add a decorative border
+                System.out.println(border);
+                break;
+            case "header": // For headers or titles
+                prefix = ">>> ";
+                suffix = " <<<";
+                break;
+            default: // Default style is plain
+                break;
         }
+
+        // word Wrapping
+        String[] words = statement.split(" ");
+        StringBuffer line = new StringBuffer("");
+
+        for (int i = 0; i < words.length; i++) {
+            if (line.length() + words[i].length() + 1 > maxLineLength) {
+                System.out.println(prefix + line.toString().trim() + suffix);
+                line = new StringBuffer("");
+            }
+            line.append(words[i]).append(" ");
+        }
+
+        // to print remaining string
+        System.out.println(prefix + line.toString().trim() + suffix);
+
+        // Close border if needed
+        if (style.equalsIgnoreCase("bordered")) {
+            System.out.println(border);
+        }
+
+        // Add a newline if requested
+        if (newline) {
+            System.out.println();
+        }
+
     }
 
     // Utility to prompt and wait for the user to press Enter
