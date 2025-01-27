@@ -1,0 +1,2 @@
+1) i have to make checkpoint array in which i will store progress when a episode i finished
+2) if wrong character chossen then random things glitches are shown and security is increaseed

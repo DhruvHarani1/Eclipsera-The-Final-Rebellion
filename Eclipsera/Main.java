@@ -15,8 +15,8 @@ public class Main {
 
         // Classes
         Scanner sc = new Scanner(System.in);
-        Methods MH = new Methods();
-        Awakening AK = new Awakening();
+        Methods MH = new Methods(); // Method class which contains all methods
+        Awakening AK = new Awakening(); // chapter one
 
         // Starting the game with game name and tagline
         System.out.println("\n\t\t\t******************************************************");
@@ -28,45 +28,45 @@ public class Main {
         System.out.println("\t\t\t******************************************************");
         MH.delay(4);
 
-        // Chapter One Awakening
+        // Chapter One Awakening //chapters will play one by one
         AK.EnterPoint();
 
     }
 }
 
-class Awakening extends Methods {
+class Awakening extends Methods { // chapter one
 
     // Classes
     Scanner sc = new Scanner(System.in);
-    Calling Call = new Calling();
-    ClockTower CT = new ClockTower();
-    TheNetwork TN = new TheNetwork();
+    Calling Call = new Calling(); // Episode one
+    ClockTower CT = new ClockTower(); // Episode two
+    TheNetwork TN = new TheNetwork(); // Episode three
 
     // variables
-    int[] alreadyCalled = new int[4]; // used in part 1 to find which charater is already called
-    boolean flag = true;
+    int[] alreadyCalled = new int[4]; // used in episode 1 to find which charater is already called
 
     // Main Entry point of Awakening
-    void EnterPoint() {
+    void EnterPoint() { // main method of class awakning
 
         ChapterTitle("Chapter 1: Awakening");
         delay(2);
 
-        initialDialogues();
+        initialDialogues(); // method for initial story and history
 
         simpleStatement("\nFirst Lets Introduce with Characters.", true, "header");
         waitForEnter("Press Enter To Continue...");
 
+        // Itroduction of each character
         professorIntroduction();
         arjunIntroduction();
         suhaniIntroduction();
         alexIntroduction();
         tysonIntroduction();
 
-        episodeTitle("Episode 1: Calling");
+        episodeTitle("Episode 1: Calling"); // episode 1
         delay(3);
 
-        swichingCharacter("Professor");
+        switchStatement("Professor");
 
         delay(3);
         simpleStatement("\nFirst of all", false, "plain");
@@ -74,7 +74,8 @@ class Awakening extends Methods {
         simpleStatement("As Professor you need to gather TEAM.\n", true, "plain");
         delay(3);
 
-        for (int i = 1; i < 5; i++) {
+        boolean flag;
+        for (int i = 1; i < 5; i++) { // loop so that professor forms team
             flag = true;
 
             System.out.println("Select a member to add to the team:");
@@ -87,7 +88,7 @@ class Awakening extends Methods {
             sc.nextLine();
 
             alreadyCalled[i - 1] = select;
-            for (int j = 0; j < alreadyCalled.length; j++) {
+            for (int j = 0; j < alreadyCalled.length; j++) { // if a player is already in team then cant be added again
                 if (select == alreadyCalled[j] && j != (i - 1)) {
                     System.out.println();
                     simpleStatement("\nAlready Called Call Someone Else\n", true, "emphasis");
@@ -97,16 +98,14 @@ class Awakening extends Methods {
                 }
             }
 
-            if (select < 1 || select > 4) {
+            if (select < 1 || select > 4) { // if entered number is not valid
                 System.out.println();
                 simpleStatement("\n Please Enter correct number between 1 to 4\n", true, "emphasis");
                 i--;
             } else if (flag) {
                 Call.callingMain(select);
             }
-        }
-
-        // End Of Episode 1 calling
+        } // End Of Episode 1 calling
 
         // Episode 2 Clock Tower
         delay(2);
@@ -156,6 +155,13 @@ class Awakening extends Methods {
         delay(3);
     }
 
+    /**
+     * Made a single method for every charactr introduction
+     * i just pass
+     * A 1-D String array of question to ask about character \\String[] question
+     * * A 2-D String array of answer to that question \\String[][] answer
+     */
+
     // Method For professor Introduction
     void professorIntroduction() {
         String[] question = new String[3];
@@ -192,7 +198,7 @@ class Awakening extends Methods {
         Introduction("Arjun", question, answers);
     }
 
-    // Method For Scientist Introduction (Initial name --> Suhani)
+    // Method For Scientist Introduction (Initial name --> Meena)
     void suhaniIntroduction() {
         String[] question = new String[3];
         question[0] = "Her Background in Science";
@@ -248,12 +254,13 @@ class Awakening extends Methods {
 
     // method for intoduction of any character
     void Introduction(String name, String[] questions, String[][] answer) {
+
         characterIntroduction(name);
         delay(3);
         System.out.println("");
 
         boolean done = false;
-        while (!done) {
+        while (!done) { // selete question number
             System.out.println("what would like to know about " + name + ": ");
             System.out.println("\n1) " + questions[0]);
             System.out.println("2) " + questions[1]);
@@ -262,7 +269,7 @@ class Awakening extends Methods {
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
 
-            switch (choice) {
+            switch (choice) { // answer to that question
                 case 1:
                     System.out.println("");
                     simpleStatement(answer[0][0], true, "plain");
@@ -301,19 +308,36 @@ class Awakening extends Methods {
     }
 }
 
-class Calling extends Methods {
+class Calling extends Methods { // episode 1
 
     // classes
     Scanner sc = new Scanner(System.in);
 
-    void callingMain(int calling) {
-        if (calling == 1) {
+    void callingMain(int calling) { // main method of calling class
+
+        /**
+         * Made a single method for all charaters named charater senerious
+         * what i pass in it
+         * 1)scene discription
+         * 2) header --> some initial dialogue said by character
+         * 2) hint --> hint to solve his question
+         * 3) question --> the problem statement or task to solve
+         * 4) options --> options to that task/question
+         * 5)correct answer --> correct answer of that question
+         * 6) success message --> if answer given by character is right
+         * 7) fail mmessage --> if answer given by character is wrong
+         * 8) charaterStATEMENT --> AFTER SOLVING QUESTION DIALOGUES TOLD BY CHARATER
+         * 9) professorstatement --> after charater solve professor givn him indication
+         * of coming to clock toweer
+         * 10) endstatemtn --> final dialogue told by character
+         */
+        if (calling == 1) { // for arjun
 
             String sceneDescription = "Scene: A dark chamber filled with laser traps and crumbling walls.Arjun, the strategist, must diffuse a tripwire to escape the room.";
             String header = "One wrong move, and this whole place goes up in flames. Focus, Arjun. focus.";
             String hint = ">>> On the left wall, it's written - \"The color when a vehicle STOPS\"";
             String question = "Available Wires: ";
-            String[] options = { "RED", "GREEN", "YELLOW" , "BLUE" };
+            String[] options = { "RED", "GREEN", "YELLOW", "BLUE" };
             String correctAnswer = "red";
             String successMessage = "Arjun: I trust my instincts. Let's do this!";
             String failMessage = "BOOM! The room explodes into flames.";
@@ -326,13 +350,13 @@ class Calling extends Methods {
 
             characterScenario("Arjun", sceneDescription, header, hint, question, options, correctAnswer, successMessage,
                     failMessage, characterStatement, professorStatement, endStatement);
-        } else if (calling == 2) {
+        } else if (calling == 2) { // for suhani
 
             String sceneDescription = "Scene: A futuristic lab with shattered glass and chemical spills. Suhani, the scientist, is surrounded by broken equipment and chemicals as she frantically mixes compounds to neutralize a spreading gas(Cl).";
             String header = "I need a stabilizer. Without it, this gas will take me out";
             String hint = ">>> In the Flask on table, it's written - \"NaOH\" \n\tCl + NaOH ---> NaCl + NaOCl + Water";
             String question = "Available stabilizer: ";
-            String[] options = { "NaCl", "NaOH", "NaOCl" , "Water" };
+            String[] options = { "NaCl", "NaOH", "NaOCl", "Water" };
             String correctAnswer = "naoh";
             String successMessage = "Suhani: God I trust you. Hare Krishna!";
             String failMessage = "Shit! The gas spread in the Room.";
@@ -346,14 +370,14 @@ class Calling extends Methods {
                     successMessage,
                     failMessage, characterStatement, professorStatement, endStatement);
 
-        } else if (calling == 3) {
+        } else if (calling == 3) { // for alex
 
             String sceneDescription = "Scene: A bunker, wires hanging in every corner. Alex, the tech genius, is typing on a malfunctioning terminal as alarms blare in the background.";
             String header = "I will hack this at any cost! What should I do?";
             String hint = ">>> On the mini screen hanging, it's written Google a Tech Giant of 2030 Destroyed After DDoS attack";
             String question = "Available Attacks: ";
             String[] options = { "SQLi", "MitM",
-                    "DDoS" , "SMTP" };
+                    "DDoS", "SMTP" };
             String correctAnswer = "ddos";
             String successMessage = "Alex: Come on... bypass the firewall!";
             String failMessage = " Attack Failed!!!";
@@ -366,7 +390,7 @@ class Calling extends Methods {
             characterScenario("Alex", sceneDescription, header, hint, question, options, correctAnswer, successMessage,
                     failMessage, characterStatement, professorStatement, endStatement);
 
-        } else if (calling == 4) {
+        } else if (calling == 4) { // for tyson
 
             String sceneDescription = "Scene: A workshop filled with broken machines and sparking wires. Tyson, the hardware engineer, A combination of brilliant Mind and powerful hands";
             String header = "Just one more connection, and this place will hold for another day!";
@@ -391,33 +415,33 @@ class Calling extends Methods {
             String[] options, String correctAnswer, String successMessage, String failMessage,
             String[] characterStatement, String[] professorStatement, String endStatement) {
         // Switching character
-        swichingCharacter(name);
+        switchStatement(name);
         delay(3);
 
         // Scene description
-        sceneTitle(sceneDescription);
+        sceneTitle(sceneDescription); // scene discription
         delay(6);
 
-        simpleStatement(name, true, "header");
-        simpleStatement(header, true, "bordered");
+        simpleStatement(name, true, "header"); // name of character called
+        simpleStatement(header, true, "bordered"); // initial dialogue
         delay(3);
 
-        simpleStatement(hint, true, "plain");
+        simpleStatement(hint, true, "plain"); // hint to solve question
         delay(4);
 
         // Puzzle logic
-        String input;
+        String input; // to chose option
         do {
             System.out.println();
             System.out.println(question);
-            for (int i = 0; i < options.length; i++) {
+            for (int i = 0; i < options.length; i++) { // priting options
                 System.out.println((i + 1) + ") " + options[i]);
             }
             System.out.print("Choose an option: ");
             input = sc.nextLine().toLowerCase();
 
             boolean optionisPresent = false;
-            for (int i = 0; i < options.length; i++) {
+            for (int i = 0; i < options.length; i++) { // validate if the input is available in option
                 if (input.equalsIgnoreCase(options[i])) {
                     optionisPresent = true;
                     break;
@@ -425,34 +449,32 @@ class Calling extends Methods {
             }
 
             if (optionisPresent) {
-                if (input.equals(correctAnswer.toLowerCase())) {
+                if (input.equals(correctAnswer.toLowerCase())) { // correct answrer
                     System.out.println("\n" + successMessage);
                     delay(3);
                 } else {
-                    System.out.println("\n" + failMessage);
+                    System.out.println("\n" + failMessage); // incorrect answerr
                     waitForEnter("Press Enter to try again...");
                 }
-            }
-            else {
-                System.out.println("\nInvalid Input Enter From( " + options[0] + "," + options[1] + "," + options[2] + "," + options[3] + " )");
+            } else { // input != give options
+                System.out.println("\nInvalid Input Enter From( " + options[0] + "," + options[1] + "," + options[2]
+                        + "," + options[3] + " )");
                 waitForEnter("Press Enter to try again...");
             }
         } while (!input.equals(correctAnswer.toLowerCase()));
 
-
-        for (int i = 0; i < characterStatement.length; i++) {
+        for (int i = 0; i < characterStatement.length; i++) { // character dialogues
             System.out.println("\n" + characterStatement[i]);
             delay(3);
         }
 
-        System.out.println("\n" + professorStatement[0]);
-        delay(3);
-        System.out.println(professorStatement[1]);
-        delay(3);
-        System.out.println(professorStatement[2]);
-        delay(3);
+        System.out.println();
+        for (int i = 0; i < professorStatement.length; i++) { // professor statement
+            System.out.println(professorStatement[i]);
+            delay(3);
+        }
 
-        System.out.println("\n" + endStatement);
+        System.out.println("\n" + endStatement); // final dialogue by character
         delay(2);
 
         waitForEnter("\nPress Enter to Continue");
@@ -462,7 +484,7 @@ class Calling extends Methods {
 
 }
 
-class ClockTower extends Methods {
+class ClockTower extends Methods { // epiosde 2
 
     // classes
     Scanner sc = new Scanner(System.in);
@@ -473,7 +495,7 @@ class ClockTower extends Methods {
                 "Scene: A towering structure surrounded in mist, One by one, the four characters arrive, A hologram of a figure flickers before them it's the mysterious Professor");
         delay(9);
 
-        swichingCharacter("Professor");
+        switchStatement("Professor");
         delay(3);
 
         simpleStatement("Professor", true, "header");
@@ -483,37 +505,51 @@ class ClockTower extends Methods {
                 true, "bordered");
         delay(6);
 
+        /**
+         * character ask the professor differnt question has given below made a method
+         * to execute that(discussion)
+         */
         String prompt = "Are you all ready to fight back and reclaim our world?";
-        String[] question = new String[5];
-        String[][] reply = new String[5][3];
+        String[] question = new String[5]; // question array
+        String[][] reply = new String[5][3]; // answer to that question
 
+        // set of questions
         question[0] = "Who are you, and why should we trust you?";
         question[1] = "And what exactly do you expect us to do?";
         question[2] = "And here I thought my day couldn't get worse. Why us?";
         question[3] = "And what happens if we fail?";
         question[4] = "Don't Ask any question.";
 
+        // reply to question 1
         reply[0][0] = "I'm the one who knows how to get you out of here.";
         reply[0][1] = "This prison, Eclipsera, was built to enslave us.";
         reply[0][2] = "But every system has a weakness, and I've found it.";
 
+        // reply to question 2
         reply[1][0] = "Fight against Nexus";
         reply[1][1] = "Destroy Eclipsera";
         reply[1][2] = "and free humanity.";
 
+        // reply to question 3
         reply[2][0] = "Because each of you has a skill this system fears";
         reply[2][1] = "Suhani , Alex and Tyson you all have different Skills";
         reply[2][2] = "and Arjun Knows when and where to execute them .";
 
+        // reply to question 4
         reply[3][0] = "Failure is the first Defeat!";
         reply[3][1] = "You're humanity's last hope.";
         reply[3][2] = "Failure is not an option.";
 
-        reply[4][0] = "This hesitation could cost us everything.";
+        // reply to question 5
         reply[4][0] = "No Questions?";
         reply[4][1] = "It's Ok if you dont want to ask Anything.";
         reply[4][2] = "but This hesitation could cost us everything.";
         discussion(prompt, question, reply);
+
+        /** if charater wish they can interact with the surrounding of clock tower(explore clock tower)
+         * 1) exploreoptions option  of what they can see in clock tower
+         * 2) exploreanswer wehat they see after chossing exploreoptions
+         */
 
         // Environmental Interaction
         String[] exploreOptions = { "Inspect the hologram.", "Check the surroundings.", "Talk to the team.",
@@ -526,6 +562,7 @@ class ClockTower extends Methods {
 
         exploreClockTower(exploreOptions, exploreAnswer);
 
+        //emergense
         System.out.println("\n\n\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
         System.out.println("\t<>                                                                       <>");
         System.out.println("\t<>      The hologram flickers as the Clock Tower begins to shake.        <>");
@@ -544,19 +581,19 @@ class ClockTower extends Methods {
 
         simpleStatement("Alex: Let me handel this", false, "header");
         delay(3);
-        swichingCharacter("Alex");
+        switchStatement("Alex");
         delay(3);
         simpleStatement("ALex Hackes the door and everbody escapes", true, "header");
 
     }
 
-    void discussion(String prompt, String[] choice, String[][] reply) {
+    void discussion(String prompt, String[] choice, String[][] reply) { //method to ask question to the professor
 
         simpleStatement("Professor", true, "header");
         simpleStatement(prompt, true, "bordered");
         delay(2);
 
-        int questionToAsk;
+        int questionToAsk;  //selection of which questio to ask to the professor
         do {
             simpleStatement("Question to Ask to Professor", false, "plain");
             int i;
@@ -568,14 +605,14 @@ class ClockTower extends Methods {
             questionToAsk = sc.nextInt();
             sc.nextLine();
 
-            if (questionToAsk > choice.length) {
+            if (questionToAsk > choice.length) {    //if enter more value than 5 or less than 1
                 System.out.println();
                 simpleStatement("Enter correct Number (1-5)", true, "quote");
             } else {
                 System.out.println();
                 simpleStatement("Professor", true, "Header");
 
-                for (int j = 0; j < 3; j++) {
+                for (int j = 0; j < 3; j++) {                       //reply to thst question
                     System.out.println(reply[questionToAsk - 1][j]);
                     delay(2);
                 }
@@ -587,20 +624,21 @@ class ClockTower extends Methods {
 
     void exploreClockTower(String[] exploreOptions, String[] exploreAnswer) {
         System.out.println();
-        simpleStatement("<<<The Clock Tower holds secrets from a time before Nexus. Explore your surroundings.>>>", true,
+        simpleStatement("<<<The Clock Tower holds secrets from a time before Nexus. Explore your surroundings.>>>",
+                true,
                 "plain");
         delay(3);
         int select;
         do {
             int i;
             System.out.println("Where do you want to explore");
-            for (i = 0; i < exploreOptions.length; i++) {
+            for (i = 0; i < exploreOptions.length; i++) {           //options
                 System.out.println((i + 1) + ") " + exploreOptions[i]);
             }
             System.out.print(">> Select: ");
             select = sc.nextInt();
             sc.nextLine();
-            if (select > exploreOptions.length) {
+            if (select > exploreOptions.length) {   //if value greater than 4
                 System.out.println();
                 simpleStatement("Enter correct Number(1-4)", true, "quote");
             } else {
@@ -612,7 +650,7 @@ class ClockTower extends Methods {
     }
 }
 
-class TheNetwork extends Methods {
+class TheNetwork extends Methods {  //episode 3
 
     // classes
     Scanner sc = new Scanner(System.in);
@@ -631,7 +669,7 @@ class TheNetwork extends Methods {
         partTitle("Part 1: The Professor's Request");
         delay(3);
 
-        swichingCharacter("Professor");
+        switchStatement("Professor");
         delay(3);
 
         simpleStatement("Professor", true, "header");
@@ -664,7 +702,7 @@ class TheNetwork extends Methods {
                 "Scene: Alex isolates himself in a small, glitching bunker with a glowing terminal. The screen with a login sequence.");
         delay(6);
 
-        swichingCharacter("Alex");
+        switchStatement("Alex");
         delay(3);
         System.out.println();
 
@@ -727,7 +765,7 @@ class TheNetwork extends Methods {
         partTitle("Part 3: Tyson's Mission");
         delay(3);
 
-        swichingCharacter("Professor");
+        switchStatement("Professor");
         delay(3);
 
         simpleStatement("\nTyson, I need you to create a wearable device.", false, "plain");
@@ -754,7 +792,7 @@ class TheNetwork extends Methods {
         delay(3);
         delay(3);
 
-        swichingCharacter("Tyson");
+        switchStatement("Tyson");
         delay(3);
 
         System.out.println();
@@ -843,7 +881,7 @@ class TheNetwork extends Methods {
         simpleStatement("Once you confirm, you'll transfer to their location instantly.", false, "plain");
         delay(3);
 
-        swichingCharacter("Alex");
+        switchStatement("Alex");
         delay(5);
 
         System.out.println();
@@ -965,8 +1003,108 @@ class Methods {
         System.out.println("\t\t\t" + "*".repeat(stars));
     }
 
+    // Method for solving challanges
+    void solvechallenge(String format, String chosenCharacter, String actualCharacter, String question,
+            String[] options, String answer, String correctStatement,
+            String incorrectStatement) {
+
+        if (!chosenCharacter.equals(actualCharacter)) {
+            System.out.println("#$$^%ivdw$#$2bjev43$#@833rRG3232digge43u4#@%%%4554jg");
+            for (int i = 0; i < options.length; i++) {
+                System.out.println((i + 1) + ")  fwg$#$cb65d$#@$sdcbd542$#@$@#$");
+            }
+            System.out.println();
+            simpleStatement(chosenCharacter, true, "header");
+            simpleStatement("Is this Some Alien language Call someone Else", true, "bordered");
+        }
+
+        String input = sc.nextLine();
+        boolean inputValid = false;
+
+        do {
+            simpleStatement(format, true, "header");
+            System.out.println(question);
+            for (int i = 0; i < options.length; i++) {
+                System.out.println((i + 1) + ") " + options[i]);
+            }
+            System.out.print("> Input: ");
+
+            input.replace(" ", "");
+            answer.replace(" ", "");
+
+            for (int i = 0; i < options.length; i++) {
+                if (input.equalsIgnoreCase(options[i])) {
+                    inputValid = true;
+                    break;
+                }
+            }
+
+            if (inputValid) {
+                if (input.equalsIgnoreCase(answer)) {
+                    System.out.println(correctStatement);
+                } else {
+                    System.out.println(incorrectStatement);
+                }
+            } else {
+                System.out.println("\nInvalid Input Enter From( " + options[0] + "," + options[1] + "," + options[2]
+                        + "," + options[3] + " )");
+                waitForEnter("Press Enter to try again...");
+            }
+        } while (!input.equals(answer));
+    }
+
+    // Method to switch between character
+    String switchCharacter() {
+
+        // variable
+        String chosen = "";
+
+        System.out.println();
+        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println("***                                                   ***");
+        System.out.println("***                     Switch To                     ***");
+        System.out.println("***                     1) Arjun                      ***");
+        System.out.println("***                     2) Suhani                     ***");
+        System.out.println("***                     3) Alex                       ***");
+        System.out.println("***                     4) Tyson                      ***");
+        System.out.println("***                                                   ***");
+        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println();
+        System.out.print("> Input:");
+        String input = sc.nextLine();
+        boolean retry = true;
+
+        do {
+            switch (input) {
+                case "1":
+                    switchStatement("Arjun");
+                    chosen = "Arjun";
+                    break;
+                case "2":
+                    switchStatement("Suhani");
+                    chosen = "Suhani";
+                    break;
+                case "3":
+                    switchStatement("Alex");
+                    chosen = "Alex";
+                    break;
+                case "4":
+                    switchStatement("Tyson");
+                    chosen = "Tyson";
+                    break;
+                default:
+                    simpleStatement("Invalid Enter From (1-4)", true, "header");
+                    retry = false;
+                    break;
+            }
+        } while (!retry);
+        return chosen;
+    }
+
     // Method to display swiching Statement
-    void swichingCharacter(String title) {
+    void switchStatement(String title) {
         simpleStatement("", true, "plain");
 
         System.out.println("\n<----- Switching role To " + title + " may take upto 5 sec ----->");
@@ -1045,6 +1183,18 @@ class Methods {
         long delayTime = System.currentTimeMillis();
         while (System.currentTimeMillis() - delayTime < 1000) {
             // Do nothing for 1 seconds
+        }
+        delay(--time);
+    }
+
+    // Method to add Delay if time less than 1 second
+    void delayBelow1sec(int time) {
+        if (time == 0) {
+            return;
+        }
+        long delayTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - delayTime < 1) {
+            // Do nothing for 1 milisecond
         }
         delay(--time);
     }
