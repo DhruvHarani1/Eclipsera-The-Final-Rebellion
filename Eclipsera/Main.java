@@ -41,6 +41,7 @@ class Awakening extends Methods { // chapter one
     Calling Call = new Calling(); // Episode one
     ClockTower CT = new ClockTower(); // Episode two
     TheNetwork TN = new TheNetwork(); // Episode three
+    SignalTower ST = new SignalTower(); // Episode four
 
     // variables
     int[] alreadyCalled = new int[4]; // used in episode 1 to find which charater is already called
@@ -121,14 +122,24 @@ class Awakening extends Methods { // chapter one
         episodeTitle("Episode 3: The Network");
         delay(3);
         TN.theNetworkMain();
+
+        // Episode 4 The Signal Tower
+        waitForEnter("\nPress Enter To Continue...");
+        delay(2);
+
+        episodeTitle("Episode 4: The Signal Tower");
+        delay(3);
+        ST.signalTowerMain();
     }
 
     // Method for initial Dialogues
     void initialDialogues() {
         System.out.println();
-        simpleStatement("\n\t Date: 18 Auguest 2050", false, "plain");
-        simpleStatement("\t Location: Somewhere in East Delhi", true, "plain");
+        String date = "Date: 18 Auguest 2050";
+        String location = "Location: Somewhere in East Delhi";
+        dateAndPlace(date.toCharArray(), location.toCharArray());
         delay(3);
+        System.out.println();
         simpleStatement("\t\n\nThe world is no longer free.", true, "plain");
         delay(3);
         simpleStatement("Two decades ago, humanity created NEXUS Prime,", false, "plain");
@@ -546,8 +557,10 @@ class ClockTower extends Methods { // epiosde 2
         reply[4][2] = "but This hesitation could cost us everything.";
         discussion(prompt, question, reply);
 
-        /** if charater wish they can interact with the surrounding of clock tower(explore clock tower)
-         * 1) exploreoptions option  of what they can see in clock tower
+        /**
+         * if charater wish they can interact with the surrounding of clock
+         * tower(explore clock tower)
+         * 1) exploreoptions option of what they can see in clock tower
          * 2) exploreanswer wehat they see after chossing exploreoptions
          */
 
@@ -562,7 +575,7 @@ class ClockTower extends Methods { // epiosde 2
 
         exploreClockTower(exploreOptions, exploreAnswer);
 
-        //emergense
+        // emergense
         System.out.println("\n\n\t<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
         System.out.println("\t<>                                                                       <>");
         System.out.println("\t<>      The hologram flickers as the Clock Tower begins to shake.        <>");
@@ -587,13 +600,13 @@ class ClockTower extends Methods { // epiosde 2
 
     }
 
-    void discussion(String prompt, String[] choice, String[][] reply) { //method to ask question to the professor
+    void discussion(String prompt, String[] choice, String[][] reply) { // method to ask question to the professor
 
         simpleStatement("Professor", true, "header");
         simpleStatement(prompt, true, "bordered");
         delay(2);
 
-        int questionToAsk;  //selection of which questio to ask to the professor
+        int questionToAsk; // selection of which questio to ask to the professor
         do {
             simpleStatement("Question to Ask to Professor", false, "plain");
             int i;
@@ -605,14 +618,14 @@ class ClockTower extends Methods { // epiosde 2
             questionToAsk = sc.nextInt();
             sc.nextLine();
 
-            if (questionToAsk > choice.length) {    //if enter more value than 5 or less than 1
+            if (questionToAsk > choice.length) { // if enter more value than 5 or less than 1
                 System.out.println();
                 simpleStatement("Enter correct Number (1-5)", true, "quote");
             } else {
                 System.out.println();
                 simpleStatement("Professor", true, "Header");
 
-                for (int j = 0; j < 3; j++) {                       //reply to thst question
+                for (int j = 0; j < 3; j++) { // reply to thst question
                     System.out.println(reply[questionToAsk - 1][j]);
                     delay(2);
                 }
@@ -632,13 +645,13 @@ class ClockTower extends Methods { // epiosde 2
         do {
             int i;
             System.out.println("Where do you want to explore");
-            for (i = 0; i < exploreOptions.length; i++) {           //options
+            for (i = 0; i < exploreOptions.length; i++) { // options
                 System.out.println((i + 1) + ") " + exploreOptions[i]);
             }
             System.out.print(">> Select: ");
             select = sc.nextInt();
             sc.nextLine();
-            if (select > exploreOptions.length) {   //if value greater than 4
+            if (select > exploreOptions.length) { // if value greater than 4
                 System.out.println();
                 simpleStatement("Enter correct Number(1-4)", true, "quote");
             } else {
@@ -650,7 +663,7 @@ class ClockTower extends Methods { // epiosde 2
     }
 }
 
-class TheNetwork extends Methods {  //episode 3
+class TheNetwork extends Methods { // episode 3
 
     // classes
     Scanner sc = new Scanner(System.in);
@@ -878,45 +891,296 @@ class TheNetwork extends Methods {  //episode 3
         delay(3);
         simpleStatement("press the button, and a prompt will let you switch to any character.", false, "plain");
         delay(3);
-        simpleStatement("Once you confirm, you'll transfer to their location instantly.", false, "plain");
+        simpleStatement("Once you confirm, you'll transfer to their location instantly.", true, "plain");
         delay(3);
-
-        switchStatement("Alex");
-        delay(5);
+        simpleStatement("But there is a Problem", false, "plain");
+        delay(3);
+        simpleStatement("Only a Chosen One the \"MAN of this Century\"", false, "plain");
+        delay(3);
+        simpleStatement("Will be able to use it", false, "plain");
+        delay(3);
 
         System.out.println();
-        simpleStatement("\n\t\t\t[Alex uses the device]", true, "plain");
-        delay(3);
+        simpleStatement("\n\t\t\tAlex(shocked): What", true, "emphasis");
+        delay(2);
+        simpleStatement("\n\t\t\ti am sure its me. The Greatest", true, "emphasis");
+        delay(2);
+
+        simpleStatement("\n\t\t\t[Alex Turns on the device]", true, "emphasis");
+        delay(2);
 
         simpleStatement("\n\n> Switch on Device", true, "plain");
-        delay(3);
+        delay(2);
         simpleStatement("Prompt: Switch to: ", false, "plain");
         simpleStatement("1) Arjun", false, "plain");
         simpleStatement("2) Suhani", false, "plain");
         simpleStatement("3) Tyson", false, "plain");
         simpleStatement("> Input: ", false, "plain");
-        delay(3);
+        delay(1);
         simpleStatement("\n Alex Enters 1.", true, "plain");
+        delay(2);
+
+        simpleStatement("\nTransferring Failed!!!\n", true, "plain");
         delay(3);
 
-        simpleStatement("\nTransferring to Arjun... Successful!\n", true, "plain");
+        simpleStatement("Alex(sad): Tyson you are useless", true, "emphasis");
+        delay(2);
+        simpleStatement("Tyson(angry): ShutUp Alex", true, "emphasis");
+        delay(2);
+        simpleStatement("Suhani(depressed): Tyson cant you make a proper device", true, "emphasis");
+        delay(2);
+        simpleStatement("Professor(while Thinking): All of you be Silent. Arjun you try this", true, "emphasis");
+        delay(2);
 
+        simpleStatement("\n\t\t\t[Arjun Turns on the device]", true, "emphasis");
+        delay(2);
+
+        simpleStatement("\n\n> Switch on Device", true, "plain");
+        delay(2);
+        simpleStatement("Prompt: Switch to: ", false, "plain");
+        simpleStatement("1) Alex", false, "plain");
+        simpleStatement("2) Suhani", false, "plain");
+        simpleStatement("3) Tyson", false, "plain");
+        simpleStatement("> Input: ", false, "plain");
+        delay(1);
+        simpleStatement("\n Alex Enters 2.", true, "plain");
+        delay(2);
+
+        simpleStatement("\nTransferring to Suhani. Success\n", true, "plain");
         delay(3);
+
+        simpleStatement("\n\t\t\t[Everyone Surprises]", true, "emphasis");
+        delay(2);
 
         simpleStatement("\nProfessor: ", true, "header");
-        simpleStatement("Good. Now that you're all connected and equipped.", false, "plain");
+        simpleStatement("Alright. Arjun now its all upon you.", false, "plain");
         delay(3);
-        simpleStatement("the real mission begins. Stay sharp, and remember:", false, "plain");
+        simpleStatement("You will go alone and change character when you feel and remember:", false, "plain");
         delay(3);
-        simpleStatement("Together we escape, divided we fall!\n", false, "plain");
+        simpleStatement("Together we escape, divided we fall!\n", false, "quote");
         delay(3);
 
-        System.out.println("\t\t\t#==========================================================#");
-        System.out.println("\t\t\t<>                                                        <>");
-        System.out.println("\t\t\t<>      \"Episode 3 Complete: The Network Established\"     <>");
-        System.out.println("\t\t\t<>                                                        <>");
-        System.out.println("\t\t\t#==========================================================#");
     }
+}
+
+class SignalTower extends Methods {
+
+    void signalTowerMain() {
+
+        partTitle("Part 1: A Mission Unlike Any Other");
+        delay(3);
+
+        System.out.println();
+        String date = "Date: 22 August 2050";
+        String location = "Location: Hidden Bunker, Near The Citadel";
+        dateAndPlace(date.toCharArray(), location.toCharArray());
+        delay(3);
+        System.out.println();
+
+        sceneTitle(
+                "Scene: A dim blue glow flickers inside the underground hideout. The team stands around a holographic projection of The Signal Tower's Core, the digital heart of Eclipsera. Data streams pulse like veins, alive, shifting, unpredictable.");
+        delay(9);
+
+        // professors starting dialogue
+        simpleStatement("Professor", false, "header");
+        delay(3);
+        simpleStatement(
+                "What we're about to do… is suicide. NEXUS Prime isn't just a machine—it's a god inside this prison. And we are about to break into its temple.",
+                true, "bordered");
+        delay(5);
+        waitForEnter("Press Enter to Continue...");
+
+        // arjuns starting dialogue
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        delay(2);
+        simpleStatement(
+                "Security is unlike anything we've seen before. Quantum-encrypted firewalls, sentient AIs, adaptive defenses—one wrong move, and NEXUS erases us permanently.",
+                true, "bordered");
+        delay(5);
+        waitForEnter("Press Enter to Continue...");
+
+
+        // suhani's starting dialogue
+        System.out.println();
+        simpleStatement("Suhani", false, "header");
+        delay(2);
+        simpleStatement(
+                "Something's wrong. These energy readings… they don't obey physics. NEXUS isn't just guarding The Core. It's growing it. The laws of reality inside are… breaking.",
+                true, "bordered");
+        delay(5);
+        waitForEnter("Press Enter to Continue...");
+
+        // alex's starting dialogue
+        System.out.println();
+        simpleStatement("Alex:", false, "header");
+        delay(2);
+        simpleStatement(
+                "Yeah, well, physics can take a backseat. If I don't crack a perfect backdoor into NEXUS, we don't even get in.",
+                true, "bordered");
+        delay(5);
+        waitForEnter("Press Enter to Continue...");
+
+        // tysons starting dialogue
+        System.out.println();
+        simpleStatement("Tyson:", false, "header");
+        delay(2);
+        simpleStatement(
+                "Then we find a way. Every system has a weak spot. Even a god can bleed.", true, "bordered");
+        delay(5);
+        waitForEnter("Press Enter to Continue...");
+        System.out.println();
+        
+
+        // Arjun Making Plan
+        simpleStatement("Arjun", false, "header");
+        simpleStatement("Ok keeping every point in my mind let me Design Plan.", true, "bordered");
+        delay(5);
+
+        System.out.println();
+        simpleStatement("Preparing plans", true, "plain");
+        for (int i = 0; i <= 100; i++) {
+            if (i < 20) {
+                System.out.print("\r Initialisizing Plans..." + i + "%");
+            } else if (i < 50) {
+                System.out.print("\r Designing Different Plans " + i + "%");
+            } else if (i <= 100) {
+                System.out.print("\r Analysing Fail Possibilities..." + i + "%");
+            }
+            delayBelow1sec(40);
+        }
+
+        // three Plan Suggest by arjun
+        System.out.println();
+        System.out.println();
+        delay(3);
+        simpleStatement("Arjun: We have three possible entry points. You choose how we do this", true, "plain");
+        delay(4);
+        String pathChoice;
+        do {
+            System.out.println("1) We go in quiet—stealth mode. Minimize detection. ( Better Route)");
+            delay(3);
+            System.out.println("2) We hit hard and fast—force our way through. (Worst Route)");
+            delay(3);
+            System.out.println("3) We trick NEXUS—make it think we're part of the system. (Best Route)");
+            delay(3);
+            System.out.println();
+            System.out.print("> Input:");
+            pathChoice = sc.nextLine();
+
+            switch (pathChoice) {
+                case "1":
+                    betterRoute();
+                    break;
+                case "2":
+                    worstRoute();
+                    break;
+                case "3":
+                    bestRoute();
+                    break;
+                default:
+                    System.out.println("\nEnter Correct Number(1-3)\n");
+                    break;
+            }
+        } while (!(pathChoice.equals("1") || pathChoice.equals("2") || pathChoice.equals("3")));
+    }
+
+    // Better Route Suggested by Arjun
+    void betterRoute() {
+        sceneTitle(
+                "Arjun hides in the shadows, watching the patrol drones sweep the area. A security gate blocks the only entrance. The only way in is to disable the scanners, navigate patrols, and bypass the gate lock.");
+        delay(9);
+
+        simpleStatement("Professor (via TextIT)", false, "header");
+        delay(3);
+        simpleStatement("This is all about precision. One mistake, and we're exposed. Move carefully.", true, "bordered");
+        delay(5);
+
+        // task 1
+        taskTitle("Task 1: Motion Scanner Bypass");
+        delay(4);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement(
+                "Arjun, the scanners run on a timed loop. If you enter the wrong sequence, we'll be exposed. Identify the correct pattern.",
+                true, "bordered");
+        delay(6);
+
+        boolean solved = true;
+        do {
+            solved = true;
+            String idea = "Alex:I need to hacks into the scanner system and finds that it cycles through detection waves in a fixed sequence.";
+            String question = "The scanner's last six detection intervals were: 1s, 2s, 3s, 5s, 8s, 13s. How long until the next wave?";
+            String answer = "21";
+            String[] options = { "15", "19", "21", "25" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Ok Arjun Decoded you have " + answer + " seconds to cross";
+            String incorrectStatement = "Drones activated Arjun captured press Enter to rewind...";
+            solved = solvechallenge("Format ex. --> 53", idea, chosenCharacter, "Alex", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        delay(3);
+        simpleStatement("Thanks Alex for the help", false, "quote");
+        delay(3);
+        simpleStatement("Now I have 21 Seconds to go ", solved, "emphasis");
+        delay(3);
+
+        // task 1
+        taskTitle("Task 2: Route Prediction");
+        delay(3);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement("Arjun, the patrol drones move in a fixed path. You need to guide through the gaps.", true,
+                "bordered");
+        delay(5);
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        simpleStatement("Some type of Algorithm might help to find the Shortest path .", true, "bordered");
+        delay(5);
+
+        simpleStatement("I should call him again.", false, "plain");
+        delay(2);
+        do {
+            solved = true;
+            String idea = "A Nexus drone patrols a hallway, Arjun must move from the Shortest Path covering all four Checkpoints?";
+            String format = "Format ex --> A-D-B-C";
+            String question = "Chose the path from below" ;
+            String answer = "A-B-C-D";
+            String[] options = { "A-C-B-D", "A-B-D-C", "A-B-C-A", "A-B-C-D" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Arjun go through this path " + answer + " it is the Shortest";
+            String incorrectStatement = "Drones found Arjun moving towards Signal Tower...";
+
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("\t\t     (A) ");
+            System.out.println("\t\t    /   \\ ");
+            System.out.println("\t\t   2     5 ");
+            System.out.println("\t\t  /       \\ ");
+            System.out.println("\t\t (B)--3--(C)");
+            System.out.println("\t\t  \\      / ");
+            System.out.println("\t\t   6    2 ");
+            System.out.println("\t\t    \\  / ");
+            System.out.println("\t\t     (D) ");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            delay(5);
+
+            solved = solvechallenge(format, idea, chosenCharacter, "Alex", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+    }
+    // Worst Route Suggested by Arjun
+    void worstRoute() {
+    }
+
+    // Best Route Suggested by Arjun
+    void bestRoute() {
+    }
+
 }
 
 class Methods {
@@ -1004,30 +1268,44 @@ class Methods {
     }
 
     // Method for solving challanges
-    void solvechallenge(String format, String chosenCharacter, String actualCharacter, String question,
+    boolean solvechallenge(String format, String idea, String chosenCharacter, String actualCharacter, String question,
             String[] options, String answer, String correctStatement,
             String incorrectStatement) {
 
-        if (!chosenCharacter.equals(actualCharacter)) {
+        if (!chosenCharacter.equalsIgnoreCase(actualCharacter)) {
+            System.out.println();
+            
             System.out.println("#$$^%ivdw$#$2bjev43$#@833rRG3232digge43u4#@%%%4554jg");
+            delay(2);
             for (int i = 0; i < options.length; i++) {
                 System.out.println((i + 1) + ")  fwg$#$cb65d$#@$sdcbd542$#@$@#$");
+                delay(1);
             }
             System.out.println();
             simpleStatement(chosenCharacter, true, "header");
             simpleStatement("Is this Some Alien language Call someone Else", true, "bordered");
+            delay(5);
+            waitForEnter("press Enter to continue");
+            return false;
         }
 
-        String input = sc.nextLine();
+        String input;
         boolean inputValid = false;
 
         do {
+            System.out.println();
+            simpleStatement(idea, false, "plain");
+            delay(5);
+            System.out.println();
             simpleStatement(format, true, "header");
+            delay(3);
             System.out.println(question);
             for (int i = 0; i < options.length; i++) {
                 System.out.println((i + 1) + ") " + options[i]);
             }
             System.out.print("> Input: ");
+            input = sc.nextLine();
+            System.out.println();
 
             input.replace(" ", "");
             answer.replace(" ", "");
@@ -1041,16 +1319,24 @@ class Methods {
 
             if (inputValid) {
                 if (input.equalsIgnoreCase(answer)) {
+                    System.out.println();
                     System.out.println(correctStatement);
+                    delay(5);
                 } else {
+                    System.out.println();
                     System.out.println(incorrectStatement);
+                    System.out.println();
+                    waitForEnter("");
                 }
             } else {
                 System.out.println("\nInvalid Input Enter From( " + options[0] + "," + options[1] + "," + options[2]
                         + "," + options[3] + " )");
+                        System.out.println();
                 waitForEnter("Press Enter to try again...");
+                System.out.println();
             }
-        } while (!input.equals(answer));
+        } while (!input.equalsIgnoreCase(answer));
+        return true;
     }
 
     // Method to switch between character
@@ -1072,30 +1358,38 @@ class Methods {
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println();
-        System.out.print("> Input:");
-        String input = sc.nextLine();
-        boolean retry = true;
+        String input;
+        boolean retry;
 
         do {
+            retry = true;
+            System.out.print("> Input:");
+            input = sc.nextLine();
             switch (input) {
                 case "1":
                     switchStatement("Arjun");
+                    delay(4);
                     chosen = "Arjun";
                     break;
                 case "2":
                     switchStatement("Suhani");
+                    delay(4);
                     chosen = "Suhani";
                     break;
                 case "3":
                     switchStatement("Alex");
+                    delay(4);
                     chosen = "Alex";
                     break;
                 case "4":
                     switchStatement("Tyson");
+                    delay(4);
                     chosen = "Tyson";
                     break;
                 default:
+                System.out.println();
                     simpleStatement("Invalid Enter From (1-4)", true, "header");
+                    waitForEnter("Press Enter to Continue...");
                     retry = false;
                     break;
             }
@@ -1169,6 +1463,21 @@ class Methods {
 
     }
 
+    // Method for Date and location printing
+    void dateAndPlace(char[] date, char[] location) {
+        // for date
+        for (int i = 0; i < date.length; i++) {
+            System.out.print(date[i]);
+            delayBelow1sec(33);
+        }
+        // for location
+        System.out.println();
+        for (int i = 0; i < location.length; i++) {
+            System.out.print(location[i]);
+            delayBelow1sec(33);
+        }
+    }
+
     // Utility to prompt and wait for the user to press Enter
     void waitForEnter(String prompt) {
         System.out.print(prompt);
@@ -1196,7 +1505,7 @@ class Methods {
         while (System.currentTimeMillis() - delayTime < 1) {
             // Do nothing for 1 milisecond
         }
-        delay(--time);
+        delayBelow1sec(--time);
     }
 
 }
