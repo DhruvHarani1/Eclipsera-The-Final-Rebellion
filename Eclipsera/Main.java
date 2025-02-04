@@ -1,3 +1,17 @@
+/*
+ * Eclipsera: The Final Rebellion
+ * Copyright (C) 2025 NovaTech INTERACTIVES
+ * Licensed under the NovaTech INTERACTIVES EXCLUSIVE LICENSE (NTIEL)
+ * 
+ * Contributions to the project are allowed, but the original story, mechanics, and branding
+ * remain the intellectual property of NovaTech INTERACTIVES. Unauthorized commercial use,
+ * reproduction, or redistribution is strictly prohibited.
+ * 
+ * For licensing inquiries, contact: dhruvharani5@gmail.com
+ */
+
+
+
 /*  Eclipsera: The Final Rebellion
     #Meaning 
     Eclipsera --> Eclipse + era   @---->eclipse referes to solar eclipse the dark time

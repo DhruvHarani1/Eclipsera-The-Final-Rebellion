@@ -82,7 +82,7 @@ java Main
 ## 📜 License
 To protect the originality of this project, the **NovaTech Interactives Exclusive License (NIEL)** will be applied. This means:
 - No one is allowed to copy, distribute, or modify the project without explicit permission.
-- Storyline, mechanics, and concepts are exclusively owned by **NOVA Interactives**.
+- Storyline, mechanics, and concepts are exclusively owned by **NovaTech Interactives**.
 - Commercial use or redistribution is strictly prohibited without prior approval.
 - Legal action will be taken against unauthorized usage.
 
