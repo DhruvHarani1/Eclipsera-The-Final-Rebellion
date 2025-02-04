@@ -1083,6 +1083,23 @@ class SignalTower extends Methods {
                     break;
             }
         } while (!(pathChoice.equals("1") || pathChoice.equals("2") || pathChoice.equals("3")));
+
+        System.out.println();
+        delay(2);
+
+        sceneTitle("Arjun walks through a massive corridor of shifting light, where data flows like rivers around them. The air is electric, pulsing, alive.");
+        delay(5);
+
+        System.out.println();
+        simpleStatement("Professor(TextIT)", true, "header");
+        delay(1);
+        simpleStatement("Stay alert. You're inside the most dangerous part of Eclipsera. If NEXUS realizes you're here—", true, "bordered");
+        delay(4);
+
+        simpleStatement("NEXUS Prime (booming, omnipresent voice):", false, "header");
+        delay(2);
+        simpleStatement("I already know.", true, "emphasis");
+        delay(3);
     }
 
     // Better Route Suggested by Arjun
@@ -1110,14 +1127,14 @@ class SignalTower extends Methods {
         boolean solved = true;
         do {
             solved = true;
-            String idea = "Alex:I need to hacks into the scanner system and finds that it cycles through detection waves in a fixed sequence.";
+            String hint = "Alex:I need to hacks into the scanner system and finds that it cycles through detection waves in a fixed sequence.";
             String question = "The scanner's last six detection intervals were: 1s, 2s, 3s, 5s, 8s, 13s. How long until the next wave?";
             String answer = "21";
             String[] options = { "15", "19", "21", "25" };
             String chosenCharacter = switchCharacter();
-            String correctStatement = "Ok Arjun Decoded you have " + answer + " seconds to cross";
+            String correctStatement = "Ok Arjun I have Decoded you have " + answer + " seconds to cross";
             String incorrectStatement = "Drones activated Arjun captured press Enter to rewind...";
-            solved = solvechallenge("Format ex. --> 53", idea, chosenCharacter, "Alex", question, options, answer,
+            solved = solvechallenge("Format ex. --> 53", hint, chosenCharacter, "Alex", question, options, answer,
                     correctStatement, incorrectStatement);
         } while (!solved);
 
@@ -1129,7 +1146,7 @@ class SignalTower extends Methods {
         simpleStatement("Now I have 21 Seconds to go ", solved, "emphasis");
         delay(3);
 
-        // task 1
+        // task 2
         taskTitle("Task 2: Route Prediction");
         delay(3);
 
@@ -1147,7 +1164,7 @@ class SignalTower extends Methods {
         delay(2);
         do {
             solved = true;
-            String idea = "A Nexus drone patrols a hallway, Arjun must move from the Shortest Path covering all four Checkpoints?";
+            String hint = "A Nexus drone patrols a hallway, Arjun must move from the Shortest Path covering all four Checkpoints?";
             String format = "Format ex --> A-D-B-C";
             String question = "Chose the path from below" ;
             String answer = "A-B-C-D";
@@ -1169,16 +1186,169 @@ class SignalTower extends Methods {
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             delay(5);
 
-            solved = solvechallenge(format, idea, chosenCharacter, "Alex", question, options, answer,
+            solved = solvechallenge(format, hint, chosenCharacter, "Alex", question, options, answer,
                     correctStatement, incorrectStatement);
         } while (!solved);
+
+        simpleStatement("<< Arjun enters The Network's Outer Core, but something feels wrong… >>", true, "plain");
     }
     // Worst Route Suggested by Arjun
     void worstRoute() {
+        sceneTitle(
+                "Arjun hides in the shadows, watching the patrol drones sweep the area. A security gate blocks the only entrance. The only way in is to disable the scanners, navigate patrols, and bypass the gate lock.");
+        delay(9);
+
+        simpleStatement("Professor (via TextIT)", false, "header");
+        delay(3);
+        simpleStatement("This is all about precision. One mistake, and we're exposed. Move carefully.", true, "bordered");
+        delay(5);
+
+        // task 1
+        taskTitle("Task 1: EMP Calibration");
+        delay(4);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement(
+                "Arjun, we need the EMP's frequency to match the security grid to shut it down without frying our own tech.",
+                true, "bordered");
+        delay(6);
+
+        boolean solved = true;
+        do {
+            solved = true;
+            String hint = "Suhani must set the EMP frequency to match Nexus's shield frequency based on a simple math equation.";
+            String question = "The security grid operates at 5 times the power of our EMP. Our EMP is at 130 Hz. What should we set it to?";
+            String answer = "650";
+            String[] options = { "130", "26", "650", "300" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Ok Arjun I set EMP to " + answer + " you can now move";
+            String incorrectStatement = "Security signal scanned Arjun press Enter to rewind...";
+            solved = solvechallenge("Format ex. --> 530", hint, chosenCharacter, "Suhani", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        delay(3);
+        simpleStatement("Thanks Suhani for the help", false, "quote");
+        delay(3);
+        simpleStatement("Now I am secure from  shield frequency ", solved, "emphasis");
+        delay(3);
+
+        // task 2
+        taskTitle("Task 2: Turret Hacking ");
+        delay(3);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement("Arjun, if you can hack their turrets, we turn their own weapons against them.", true,
+                "bordered");
+        delay(5);
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        simpleStatement("Hacking! I know Whom to Call .", true, "bordered");
+        delay(4);
+
+        do {
+            solved = true;
+            String hint = "Alex must decode an encryption key by following a simple shift cipher.";
+            String format = "Format ex --> NOVA";
+            String question = "The key is encrypted: 'SRCEEU'." ;
+            String answer = "Secure";
+            String[] options = { "SREECU", "TSDFFV", "SECURE", "RSBDDT" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Arjun i have Decoded the Code  " + answer + " its the code";
+            String incorrectStatement = "Hijacking Unsuccessful...";
+            solved = solvechallenge(format, hint, chosenCharacter, "Alex", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+
+        simpleStatement("<< Arjun enters The Network's Outer Core, but something feels wrong… >>", true, "plain");
+
+
     }
 
     // Best Route Suggested by Arjun
     void bestRoute() {
+        sceneTitle(
+                "Arjun hides in the shadows, watching the patrol drones sweep the area. A security gate blocks the only entrance. The only way in is to disable the scanners, navigate patrols, and bypass the gate lock.");
+        delay(9);
+
+        simpleStatement("Professor (via TextIT)", false, "header");
+        delay(3);
+        simpleStatement("This is all about precision. One mistake, and we're exposed. Move carefully.", true, "bordered");
+        delay(5);
+
+        // task 1
+        taskTitle("Task 1: Security Clearance");
+        delay(4);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement(
+                "Arjun, you need a valid ID code. Only one of these follows the correct Nexus format.",
+                true, "bordered");
+        delay(6);
+
+        simpleStatement("Arjun: hmm Strategical question.", true, "header");
+        delay(2);
+
+        boolean solved = true;
+        do {
+            solved = true;
+            String hint = "Figure out from the options";
+            String question = "Which of these is a valid Nexus ID?";
+            String answer = "NX-11-YZ-121";
+            String[] options = { "NX-11-YZ-121", " XT-99-AX-100", "NX-22-YZ-50", "NX-31-BX-678" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Got the ID " + answer;
+            String incorrectStatement = "Robots capture arjun with wrong ID press Enter to rewind...";
+            solved = solvechallenge("Format ex. --> AB-00-CD-000", hint, chosenCharacter, "Arjun", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        delay(3);
+        simpleStatement("Finaly figured out", false, "quote");
+        delay(3);
+        simpleStatement("Now Nexus will Think i am his part", solved, "emphasis");
+        delay(3);
+
+        // task 2
+        taskTitle("Task 2: Energy Grid Stabilization");
+        delay(3);
+
+        simpleStatement("Professor: ", false, "header");
+        delay(3);
+        simpleStatement("Arjun, the system is glitching. You must stabilize the System.", true,
+                "bordered");
+        delay(5);
+        System.out.println();
+        simpleStatement("Arjun", false, "header");
+        simpleStatement("How the energy flows is my key to stabilize the system .", true, "bordered");
+        delay(5);
+
+        simpleStatement("I must call The expert.", false, "plain");
+        delay(2);
+
+        do {
+            solved = true;
+            String hint = "5 , 25 , 40 , 30";
+            String format = "Format ex --> 5643";
+            String question = "Chose the order" ;
+            String answer = "3421";
+            String[] options = { "2431" , "3421", "4132", "1234" };
+            String chosenCharacter = switchCharacter();
+            String correctStatement = "Energy flow from high to low 40-->30-->25-->5";
+            String incorrectStatement = "Unstabilized...";
+
+            solved = solvechallenge(format, hint, chosenCharacter, "Suhani", question, options, answer,
+                    correctStatement, incorrectStatement);
+        } while (!solved);
+
+        simpleStatement("<< Arjun enters The Network's Outer Core, but something feels wrong… >>", true, "plain");
     }
 
 }
@@ -1268,7 +1438,7 @@ class Methods {
     }
 
     // Method for solving challanges
-    boolean solvechallenge(String format, String idea, String chosenCharacter, String actualCharacter, String question,
+    boolean solvechallenge(String format, String hint, String chosenCharacter, String actualCharacter, String question,
             String[] options, String answer, String correctStatement,
             String incorrectStatement) {
 
@@ -1294,7 +1464,7 @@ class Methods {
 
         do {
             System.out.println();
-            simpleStatement(idea, false, "plain");
+            simpleStatement(hint, false, "plain");
             delay(5);
             System.out.println();
             simpleStatement(format, true, "header");
