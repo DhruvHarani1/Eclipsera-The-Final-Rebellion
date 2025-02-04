@@ -80,7 +80,7 @@ java Main
 ---
 
 ## 📜 License
-To protect the originality of this project, the **NOVA Interactives Exclusive License (NIEL)** will be applied. This means:
+To protect the originality of this project, the **NovaTech Interactives Exclusive License (NIEL)** will be applied. This means:
 - No one is allowed to copy, distribute, or modify the project without explicit permission.
 - Storyline, mechanics, and concepts are exclusively owned by **NOVA Interactives**.
 - Commercial use or redistribution is strictly prohibited without prior approval.
@@ -97,7 +97,7 @@ For licensing inquiries, please contact the developer.
 
 ---
 
-## 🏢 A **NOVA Interactives** Creation
+## 🏢 A **NovaTech Interactives** Creation
 🎮 **Engineering the Future of Play**  
 🌟 **A Northstar Production**
 
