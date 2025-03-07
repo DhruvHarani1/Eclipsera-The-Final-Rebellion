@@ -139,4 +139,3 @@ A special thanks to **Binary Brains** for being a constant source of inspiration
 
 **Engineering the Future of Play**  
 **A Northstar Production**
-```
