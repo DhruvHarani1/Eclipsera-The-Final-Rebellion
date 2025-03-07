@@ -56,16 +56,19 @@
 
 ### Chapters & Episodes
 
-**Chapter 1: Awakening**
+**Chapter 1: Awakening**  
+- **Episode 1: Calling**  
+  - The Professor gathers the team. Players choose team members and witness character introductions.
+- **Episode 2: Clock Tower**  
+  - The team meets at a mysterious Clock Tower, unlocking key story elements and initiating interactive discussions.
+- **Episode 3: The Network**  
+  - The narrative shifts as Alex is tasked with creating a secure communication app (TextIT) amidst challenging puzzles.
+- **Episode 4: The Signal Tower**  
+  - The team infiltrates a high-security location, facing advanced tasks like EMP calibration and turret hacking.
+- **Episode 5: Ecliptic Rift – The Memory Chamber**  
+  - Arjun is pulled into a surreal dimension where memories and reality blur; solve Morse code puzzles and memory montages to unlock secrets.
 
-- **Episode 1: Calling** → Gathering the Team  
-- **Episode 2: Clock Tower** → Meeting the Professor  
-- **Episode 3: The Network** → Hacking NEXUS  
-- **Episode 4: Signal Tower** → Final Battle with NEXUS Prime  
-
-**Upcoming Chapters:**
-
-The story continues to evolve with additional chapters and episodes that will expand the world of Eclipsera. Future updates promise new missions, deeper lore, and even greater challenges.
+*Note:* Additional chapters and episodes are planned to further expand the world of Eclipsera with new missions, puzzles, and narrative twists.
 
 ---
 
